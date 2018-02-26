@@ -1,0 +1,57 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="dialog_layout_padding">24dp</dimen>
+    <dimen name="dialog_fp_etUID_top_margin">8dp</dimen>
+    <dimen name="otp_activity_paddingTop">24dp</dimen>
+    <dimen name="textTitle">24sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <!--tab layout dimen-->
+    <dimen name="tab_max_width">264dp</dimen>
+    <dimen name="tab_padding_bottom">16dp</dimen>
+    <dimen name="tab_label">14sp</dimen>
+    <dimen name="custom_tab_layout_height">72dp</dimen>
+    <dimen name="text_24sp">24sp</dimen>
+    <dimen name="most_view_custom_layout_padding_16dp">16dp</dimen>
+    <dimen name="custom_layout_padding_16dp">16dp</dimen>
+    <dimen name="custom_learn_text_padding_16dp">16dp</dimen>
+    <dimen name="title_textsize">16sp</dimen>
+    <dimen name="custom_learn_text_layout_top_margin">8dp</dimen>
+    <dimen name="cardview_margin_top">24dp</dimen>
+    <dimen name="textview_left_padding_16dp">16dp</dimen>
+    <dimen name="textview_left_padding_8dp">8dp</dimen>
+    <dimen name="textview_right_padding_16dp">16dp</dimen>
+    <dimen name="textview_margin_8dp">8dp</dimen>
+    <dimen name="txt_heading_padding">10dp</dimen>
+    <dimen name="txt_heading_textsize">20dp</dimen>
+    <dimen name="profile_lebal_top_margin">8dp</dimen>
+    <dimen name="profil_layout_left_margin">4dp</dimen>
+    <dimen name="layout_top_margin_8dp">8dp</dimen>
+    <dimen name="layout_bottom_margin_8dp">8dp</dimen>
+    <dimen name="tree_text_title_left_margin_8dp">8dp</dimen>
+    <dimen name="home_menu_layout_padding_4dp">4dp</dimen>
+    <dimen name="alert_width">290dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+    <dimen name="home_menu_margin">0dp</dimen>
+    <dimen name="home_menu_border_width">1dp</dimen>
+    <dimen name="slider_height">160dp</dimen>
+    <dimen name="margin_size_3dp">3dp</dimen>
+    <dimen name="videoHeight">150dp</dimen>
+    <dimen name="text_16sp">10sp</dimen>
+    <dimen name="padding_8dp">3dp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_14sp">10sp</dimen>
+    <dimen name="margin_size_8dp">8dp</dimen>
+    <dimen name="image_height">100dp</dimen>
+    <dimen name="my_tech_image_height">35dp</dimen>
+    <dimen name="imag_height_120dp">100dp</dimen>
+    <dimen name="drawer_image_height_70dp">70dp</dimen>
+    <dimen name="text_large">30sp</dimen>
+    <dimen name="button_corner">15dp</dimen>
+
+</resources>

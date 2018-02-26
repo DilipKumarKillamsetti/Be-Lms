@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/nav_home"
+            android:textSize="@dimen/text_size_14sp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_change_mobile_no"
+            android:icon="@drawable/nav_mobile"
+            android:textSize="@dimen/text_size_14sp"
+            android:title="Change password" />
+        <item
+            android:textSize="@dimen/text_size_14sp"
+            android:id="@+id/nav_my_queries"
+            android:icon="@drawable/nav_my_queries"
+            android:title="My Queries"
+            android:visible="false" />
+        <!--<item-->
+            <!--android:id="@+id/nav_disclaimer"-->
+            <!--android:icon="@drawable/nav_disclaimer"-->
+            <!--android:title="Disclaimer" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_safety"-->
+            <!--android:icon="@drawable/nav_saftey"-->
+            <!--android:title="Safety and Warnings" />-->
+        <item
+            android:id="@+id/nav_notification"
+            android:textSize="@dimen/text_size_14sp"
+            android:icon="@drawable/nav_notification"
+            android:title="Notification" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/nav_about"
+            android:title="About Us"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_contact_us"
+            android:textSize="@dimen/text_size_14sp"
+            android:icon="@drawable/nav_contact"
+            android:title="@string/contact_to_admin"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_help"
+            android:textSize="@dimen/text_size_14sp"
+            android:icon="@drawable/nav_help"
+            android:title="Help/FAQ"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:textSize="@dimen/text_size_14sp"
+            android:icon="@drawable/nav_logout"
+            android:title="Logout" />
+        <item
+            android:id="@+id/footer_spacer_1"
+            android:checkable="false"
+            android:enabled="false"
+            android:orderInCategory="200"
+            android:title="" />
+        <item
+            android:id="@+id/footer_spacer_2"
+            android:checkable="false"
+            android:enabled="false"
+            android:orderInCategory="201"
+            android:title="" />
+    </group>
+</menu>

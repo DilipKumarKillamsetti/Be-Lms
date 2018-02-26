@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+       >
+        <TextView
+            android:id="@+id/attemptsText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Attempt"/>
+
+        <TextView
+            android:id="@+id/stateText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="State"/>
+
+        <TextView
+            android:id="@+id/marksText"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:text="Marks/8.00"/>
+
+        <TextView
+            android:id="@+id/gradeText"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Grade/10.00"/>
+        <!--<view-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight=".01"-->
+            <!--android:layout_height="match_parent"-->
+
+            <!--android:layout_marginLeft="1dp"/>-->
+        <TextView
+            android:id="@+id/previewText"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/review_text"/>
+
+    </LinearLayout>
+
+</LinearLayout>

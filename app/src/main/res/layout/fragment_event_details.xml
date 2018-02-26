@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin_size_8dp">
+    <LinearLayout
+        android:id="@+id/ll_tc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_size_8dp"
+        >
+
+        <com.mahindra.be_lms.util.CircularImageView
+            android:id="@+id/iv_tranning_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fitsSystemWindows="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_mt"
+            app:border="true"
+            app:border_color="@color/white"
+            app:border_width="4dp"
+            app:layout_collapseMode="parallax"
+            app:shadow="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_size_8dp"
+            android:layout_weight="1"
+            android:text="Training Calender"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/text_size_18sp" />
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_event_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:text="24 Feb 2018"
+            android:layout_margin="@dimen/margin_size_8dp"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tv_event_title"
+            android:layout_margin="@dimen/margin_size_8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Black"
+            android:text="Data Mining - Rolly John"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+
+
+    <ImageView
+        android:layout_margin="@dimen/margin_size_8dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/details_bg"
+        android:scaleType="fitXY"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_margin="@dimen/margin_size_8dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_from"
+            android:layout_marginTop="@dimen/margin_size_8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_14sp"
+            android:textColor="@color/gray"
+            android:layout_margin="@dimen/margin_size_3dp"
+            android:text="From: 3:00 PM"/>
+
+        <TextView
+            android:id="@+id/tv_to"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_14sp"
+            android:layout_margin="@dimen/margin_size_3dp"
+            android:textColor="@color/gray"
+            android:text="To: 6:00 PM"/>
+
+        <TextView
+            android:id="@+id/tv_event_venue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Venue: HRD 3 Mumbai"
+            android:textSize="@dimen/text_size_16sp"
+            android:layout_marginTop="@dimen/margin_size_8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/margin_size_8dp"
+                android:layout_marginRight="@dimen/margin_size_8dp"
+                style="@style/squre_round_filled_button_yellow"
+                android:text="Details"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_nominate"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="Nominate"
+                android:layout_marginTop="@dimen/margin_size_8dp"
+                android:layout_marginLeft="@dimen/margin_size_8dp"
+                style="@style/squre_round_filled_button_yellow"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

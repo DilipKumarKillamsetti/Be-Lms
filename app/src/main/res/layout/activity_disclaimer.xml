@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/yellow">
+
+    <LinearLayout
+        android:id="@+id/llLoginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_be_logo_splash" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Excellence Everywhere"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/text_size_18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/welcome_text"
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/text_large" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:background="@drawable/et_red_bg"
+                    android:text="@string/text_disclaimer"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_white_bg">
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:scrollbars="vertical"
+                        >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stringtxt_dislaimer"
+                        android:textSize="@dimen/text_size_18sp"
+                        />
+                    </ScrollView>
+                </LinearLayout>
+                <!--<EditText-->
+                    <!--android:id="@+id/etDisclaimer"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/edittext_white_bg"-->
+                    <!--android:hint="@string/etmusername_label"-->
+                    <!--android:gravity="center"-->
+                    <!--android:imeOptions="actionNext"-->
+                    <!--android:textColor="@color/grey_light"-->
+                    <!--android:scrollbars = "vertical"-->
+                    <!--android:overScrollMode="always"-->
+                    <!--android:scrollbarStyle="insideInset"-->
+                    <!--android:editable="false"-->
+                    <!--android:enabled="false"-->
+                    <!--android:focusableInTouchMode="false"-->
+                    <!--android:text="@string/stringtxt_dislaimer"-->
+                    <!--android:textColorHint="@color/grey_light"-->
+                    <!--android:inputType="textMultiLine|none|textNoSuggestions"-->
+                    <!--android:lines="5"-->
+                    <!--android:textSize="@dimen/text_size_16sp"/>-->
+
+
+                <TextView
+                    android:id="@+id/note_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="@string/note_login_mobile_no_validation"
+                    android:textAppearance="@android:style/TextAppearance.Small"
+                    android:textColor="@color/mahindra_gray"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnAccept"
+                    style="@style/squre_round_filled_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="@string/btn_acccept"
+                    android:textAppearance="@android:style/TextAppearance.Large"
+                    android:textSize="@dimen/text_size_16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLoginChangeMobileNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="@dimen/margin_size_8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/forgot_pwd_label"
+            android:textSize="@dimen/text_size_16sp"
+            android:visibility="gone"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@color/textColorPrimary"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/tvSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_8dp"
+            android:gravity="left"
+            android:text=" SIGN UP"
+            android:visibility="gone"
+            android:textSize="@dimen/text_size_16sp"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/custom_layout_padding_16dp"
+        android:paddingLeft="@dimen/custom_layout_padding_16dp"
+        android:paddingRight="@dimen/custom_layout_padding_16dp">
+
+        <TextView
+            android:id="@+id/tvContactToAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:visibility="gone"
+            android:text="@string/contact_to_admin"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tvHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right|bottom"
+            android:text="Help"
+            android:visibility="gone"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<tabs>
+    <tab
+        icon="@drawable/icon_new_technical_upload"
+        id="@+id/tab_view_technical_upload_new"
+        title="New" />
+    <tab
+        icon="@drawable/user"
+        id="@+id/tab_view_technical_upload_by_me"
+        title="By Me" />
+    <tab
+        icon="@drawable/usergroup"
+        id="@+id/tab_technical_upload_other"
+        title="By Others" />
+</tabs>

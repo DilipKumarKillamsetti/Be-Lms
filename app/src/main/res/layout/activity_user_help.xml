@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mahindra.be_lms.fragments.MyTrainingPassportWebViewFragment">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawableLeft="@drawable/help_circle"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/custom_layout_padding_16dp"
+        android:paddingRight="@dimen/custom_layout_padding_16dp"
+        android:text="@string/user_help"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tvTitle"
+        android:background="@color/colorPrimary" />
+
+    <WebView
+        android:id="@+id/wvUserHelp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer_view"
+        android:layout_below="@+id/view1"></WebView>
+
+    <ProgressBar
+        android:id="@+id/progressBarTrainingPassport"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/footer_view"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:visibility="gone" />
+</RelativeLayout>

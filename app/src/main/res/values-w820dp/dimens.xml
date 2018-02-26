@@ -1,0 +1,28 @@
+<resources>
+    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="slider_height">200dp</dimen>
+
+    //padding
+    <dimen name="padding_size_5dp">10dp</dimen>
+    <dimen name="text_size_16sp">32sp</dimen>
+    //margin
+
+    <dimen name="margin_size_10dp">35dp</dimen>
+    <dimen name="margin_size_3dp">6dp</dimen>
+    <dimen name="videoHeight">185dp</dimen>
+    <dimen name="text_16sp">32sp</dimen>
+    <dimen name="padding_8dp">14dp</dimen>
+    <dimen name="text_size_18sp">30sp</dimen>
+    <dimen name="text_size_14sp">30sp</dimen>
+    <dimen name="margin_size_8dp">8dp</dimen>
+    <dimen name="image_height">160dp</dimen>
+    <dimen name="my_tech_image_height">90dp</dimen>
+    <dimen name="imag_height_120dp">170dp</dimen>
+    <dimen name="drawer_image_height_70dp">100dp</dimen>
+    <dimen name="text_large">30sp</dimen>
+    <dimen name="button_corner">15dp</dimen>
+
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mahindra.be_lms.activities.AboutUsActivity">
+
+    <TextView
+        android:id="@+id/tvAboutUsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawableLeft="@drawable/nav_about"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/custom_layout_padding_16dp"
+        android:paddingRight="@dimen/custom_layout_padding_16dp"
+        android:text="About Us"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/viewAboutUsDivider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tvAboutUsTitle"
+        android:background="@color/colorPrimary" />
+
+    <ScrollView
+        android:id="@+id/sc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer_view"
+        android:layout_below="@+id/tvAboutUsTitle"
+        android:scrollbars="none"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/ll_padding_8dp">
+
+            <com.uncopt.android.widget.text.justify.JustifiedTextView
+                android:id="@+id/tv_abt_cont"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="@android:style/TextAppearance.Medium" />
+        </LinearLayout>
+    </ScrollView>
+
+    <WebView
+        android:id="@+id/wvAboutUs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer_view"
+        android:layout_below="@+id/viewAboutUsDivider"
+        android:visibility="gone"></WebView>
+
+    <include
+        android:id="@+id/footer_view"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarAboutUs"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>

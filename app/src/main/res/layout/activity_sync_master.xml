@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sync_master"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.mahindra.be_lms.activities.SyncMasterActivity">
+
+    <include
+        android:id="@+id/retryButtonLayout"
+        layout="@layout/retry_button_layout"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvSyncMasterMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Click on sync button it's mendatory to start application"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnSyncMasterActivitySynch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_retry_selector"
+        android:text="Sync"
+        android:textColor="@color/colorPrimary" />
+</LinearLayout>

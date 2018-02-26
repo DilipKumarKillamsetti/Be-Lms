@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="2dp"
+    android:gravity="center">
+
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardElevation="4dp"
+        card_view:cardPreventCornerOverlap="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_size_3dp">
+
+                <com.mahindra.be_lms.util.CircularImageView
+                    android:id="@+id/header_imageView"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/eng"
+                    app:border="true"
+                    app:border_color="@color/white"
+                    app:border_width="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/Black"
+                    android:textStyle="bold"
+                    android:text="Vijay Kumavat shared 50th Mahindra Yellow belt at Mahindra Pune"
+                    android:textSize="@dimen/text_size_18sp"
+                    android:layout_margin="@dimen/margin_size_3dp"/>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/postName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:gravity="left"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_16sp"
+                tools:text="PostName" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/postBy"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_size_3dp"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    tools:text="Posted By: Vijay Kumavat" />
+                <TextView
+                    android:id="@+id/postOn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_size_3dp"
+                    android:gravity="right"
+                    android:textStyle="bold"
+                    tools:text="Posted By: Vijay Kumavat" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/newsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:gravity="left"
+                android:textSize="@dimen/text_size_16sp"
+                android:textColor="@color/Black"
+                android:padding="@dimen/padding_size_5dp"
+                android:background="@drawable/btn_retry_selector"
+                android:textStyle="bold"
+                tools:text="Posted By: Vijay Kumavat" />
+
+            <TextView
+                android:textSize="22sp"
+                android:textColor="@color/Black"
+                android:id="@+id/tv"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                tools:text="hello" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_size_3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5k Likes"
+                    android:layout_margin="@dimen/margin_size_3dp"/>
+
+                <TextView
+                    android:layout_margin="@dimen/margin_size_3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="70 Comments"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_size_3dp">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginRight="22dp"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:text="Like"
+                    android:button="@drawable/like_checkbox" />
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/icn_like"/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Like"-->
+                    <!--android:textSize="@dimen/text_size_16sp"-->
+                    <!--android:layout_margin="@dimen/margin_size_3dp"/>-->
+                <LinearLayout
+                    android:id="@+id/ll_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icn_comment"/>
+                <TextView
+                    android:layout_margin="@dimen/margin_size_3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:textColor="@color/gray"
+                    android:text="Comment"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

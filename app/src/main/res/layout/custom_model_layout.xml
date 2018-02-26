@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llModelFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_effect"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/layout_bottom_margin_8dp"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/layout_top_margin_8dp">
+
+    <ImageView
+        android:id="@+id/ivDocumentIcon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:srcCompat="@drawable/w"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvModelName"
+        style="@style/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/tree_text_title_left_margin_8dp"
+        android:text="TextView" />
+</LinearLayout>

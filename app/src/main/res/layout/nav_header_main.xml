@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@drawable/side_nav_bar"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingBottom="4dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="4dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <com.mahindra.be_lms.util.CircularImageView
+        android:id="@+id/header_imageView"
+        android:layout_width="@dimen/drawer_image_height_70dp"
+        android:layout_height="@dimen/drawer_image_height_70dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_profile"
+        app:border="true"
+        app:border_color="@color/white"
+        app:border_width="4dp" />
+
+    <TextView
+        android:id="@+id/header_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:text="test@gmail.com"
+        android:textSize="@dimen/text_size_14sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/header_mob_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:textSize="@dimen/text_size_14sp"
+        android:text="android.studio@android.com"
+        android:visibility="visible" />
+
+</LinearLayout>

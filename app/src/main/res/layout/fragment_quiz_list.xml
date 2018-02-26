@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mahindra.be_lms.fragments.LearnTestQuizFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/tvNotificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawableLeft="@drawable/learning_title"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/custom_layout_padding_16dp"
+        android:paddingRight="@dimen/custom_layout_padding_16dp"
+        android:text="@string/nav_learning_quiz"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_18sp" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tvNotificationTitle"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/tvNoRecordFound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_record_found"
+        android:textSize="@dimen/text_24sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/label_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/view1"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/layout_top_margin_8dp"
+        android:layout_marginLeft="@dimen/layout_top_margin_8dp"
+        android:layout_marginRight="@dimen/layout_top_margin_8dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Quiz List"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_24sp"/>
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/quiz_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/caldroid_lighter_gray"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/footer_view"
+        android:layout_below="@+id/label_lay"
+        android:visibility="visible" />
+
+    <WebView
+        android:id="@+id/wvTestPaperFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above ="@+id/footer_view"
+        android:visibility="gone">
+    </WebView>
+
+    <include
+        android:id="@+id/footer_view"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
+    <ProgressBar
+        android:id="@+id/progressBarLearnTestPaper"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="24dp">
+
+    <TextView
+        android:id="@+id/tvCustomCourseDetailsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/custom_dialog_header"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:text="Php Course"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/textview_left_padding_16dp"
+        android:paddingRight="@dimen/textview_right_padding_16dp"
+        android:text="Topic :"
+        android:textSize="16sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/tvCustomCourseDetailsDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/textview_left_padding_16dp"
+        android:paddingRight="@dimen/textview_right_padding_16dp"
+        android:text="Remoulade Going to the home doesn’t absorb energy anymore than respecting creates calm reincarnation.Greatly exaggerated loves lead to the hypnosis." />
+</LinearLayout>

@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- This could be your fragment container, or something -->
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/tvNotificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawableLeft="@drawable/mostview_title"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/custom_layout_padding_16dp"
+        android:paddingRight="@dimen/custom_layout_padding_16dp"
+        android:text="@string/nav_most_viewed"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_18sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tvNotificationTitle"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:id="@+id/rlMostViewFirstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rlMostViewSecondLayout"
+        android:layout_below="@+id/view1">
+
+        <FrameLayout
+            android:id="@+id/contentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar" />
+
+        <com.roughike.bottombar.BottomBar
+            android:id="@+id/bottomBar"
+            style="@style/BB_BottomBarBadge_Text"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            app:bb_tabXmlResource="@xml/bottombar_tabs" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlMostViewSecondLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include
+            android:id="@+id/footer_view"
+            layout="@layout/footer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</RelativeLayout>

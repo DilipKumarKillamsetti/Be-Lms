@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mahindra.be_lms">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name="com.mahindra.be_lms.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:hardwareAccelerated="true"
+        android:theme="@style/AppTheme">
+
+        <!--
+           Set color used with incoming notification messages. This is used when no color is set for the incoming
+           notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <activity
+            android:name="com.mahindra.be_lms.activities.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mahindra.be_lms.activities.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/myTheme_NoActionBar2"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/myTheme_NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.OTPActivity2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.ChangePasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity android:name="com.mahindra.be_lms.activities.MyQueryDetailActivity" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.VideoViewActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"
+            android:theme="@style/myTheme_NoActionBar" />
+        <activity android:name="com.mahindra.be_lms.activities.ImportActivity" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.NotificationActivity"
+            android:logo="@drawable/header2"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data element is needed for versions lower than 4.1 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mahindra.be_lms.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.mahindra.be_lms.activities.FeedbackActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+
+        <receiver
+            android:name="com.mahindra.be_lms.broadcast.NetworkChangeReceiver"
+            android:label="NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mahindra.be_lms.broadcast.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.mahindra.be_lms.activities.SyncMasterActivity" />
+        <!-- [START firebase_service] -->
+        <service android:name="com.mahindra.be_lms.fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+        <!-- [START firebase_iid_service] -->
+        <service android:name="com.mahindra.be_lms.fcm.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_iid_service] -->
+        <service
+            android:name="com.mahindra.be_lms.services.MySyncService"
+            android:exported="false" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.ChangeMobileNumberActivity"
+            android:parentActivityName="com.mahindra.be_lms.activities.MainActivity"
+            android:screenOrientation="portrait">
+            <!-- The meta-data element is needed for versions lower than 4.1 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mahindra.be_lms.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.mahindra.be_lms.activities.SearchActivity"
+            android:parentActivityName="com.mahindra.be_lms.activities.MainActivity"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data element is needed for versions lower than 4.1 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mahindra.be_lms.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.mahindra.be_lms.activities.QueryResponseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.QuestionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.DisclaimerActivity"
+            android:theme="@style/myTheme_NoActionBar2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.SafetyAndWarningActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.AboutUsActivity"
+            android:parentActivityName="com.mahindra.be_lms.activities.MainActivity"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data element is needed for versions lower than 4.1 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mahindra.be_lms.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.mahindra.be_lms.activities.QuizResultFeedback"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.SyncActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.TechnicalUploadDisclaimerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.ComingSoonActivity"
+            android:screenOrientation="portrait" />
+
+        <!--  <meta-data
+              android:name="io.fabric.ApiKey"
+              android:value="d3c7507ba2abfc27176e7fc287aec3b5656f581b" />-->
+
+        <activity
+        android:name="com.mahindra.be_lms.activities.ProfilePictureActivity"
+        android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.ViewDocument"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.FAQActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light"/>
+        <activity
+            android:name="com.mahindra.be_lms.activities.ViewProfileDetails"
+            android:theme="@style/myTheme_NoActionBar"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.mahindra.be_lms.activities.NotificationDialogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.NotificationAttachmentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name="com.mahindra.be_lms.activities.CommentsActivityDialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"></activity>
+        <activity
+            android:name="com.mahindra.be_lms.activities.ReplyQueryActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.mahindra.be_lms.activities.UserHelpActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mahindra.be_lms.activities.MainActivity" />
+        </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1a2f005918f80fd3a02e430f88f290209daa4b4e" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>

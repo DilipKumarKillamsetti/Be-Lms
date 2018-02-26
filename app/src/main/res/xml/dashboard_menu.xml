@@ -1,0 +1,18 @@
+<tabs>
+    <tab
+        icon="@drawable/icn_dashbord_alfa_50"
+        id="@+id/excellence_update"
+         />
+    <tab
+        icon="@drawable/icn_training_alfa_50"
+        id="@+id/tab_view_learning_hub"
+         />
+    <tab
+        icon="@drawable/icn_notification_alfa_50"
+        id="@+id/tab_notifications"
+         />
+    <tab
+        icon="@drawable/icn_security_alfa_50"
+        id="@+id/tab_technical_upload_other"
+        />
+</tabs>

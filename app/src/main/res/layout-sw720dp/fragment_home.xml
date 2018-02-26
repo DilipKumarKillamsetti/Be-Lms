@@ -1,0 +1,130 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.mahindra.be_lms.fragments.HomeFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llSearchLayout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#1e000000"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/searchview_left_padding"
+                android:paddingRight="@dimen/searchview_right_padding">
+
+                <Button
+                    android:id="@+id/btnHomeActivityAboutUs"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_below="@+id/llSearchLayout"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="0.65"
+                    android:background="@drawable/button_selector"
+                    android:drawableLeft="@drawable/icon_aboutus_btn"
+                    android:drawablePadding="16dp"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="8dp"
+                    android:text="@string/home_powerol_care_btn_label"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/etSearchText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.43"
+                    android:background="#00000000"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:hint="@string/type_text" />
+
+                <Spinner
+                    android:id="@+id/spSearchModel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.42"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <Button
+                    android:id="@+id/btnHomeActivitySearch"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/llSearchLayout"
+                    android:background="@drawable/magnify" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/footer_view"
+                android:layout_below="@+id/llSearchLayout"
+                android:orientation="vertical">
+
+                <com.daimajia.slider.library.SliderLayout
+                    android:id="@+id/homeSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="256dp"
+                    android:background="@drawable/banner" />
+
+                <android.support.v4.widget.SwipeRefreshLayout
+                    android:id="@+id/home_swipe_refresh_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/footer_view"
+                    android:layout_below="@+id/homeSlider">
+
+                </android.support.v4.widget.SwipeRefreshLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvHomeFragmentMenuList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="visible"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBar_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/footer_view"
+        layout="@layout/footer_layout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</LinearLayout>

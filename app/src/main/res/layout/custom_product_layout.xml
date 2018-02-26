@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rlProductMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/product_selector">
+
+        <TextView
+            android:id="@+id/tvProductTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:paddingLeft="@dimen/textview_left_padding_16dp"
+            android:paddingRight="@dimen/textview_right_padding_16dp"
+            android:text="Adminstrator"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
+
+        <ImageView
+            android:id="@+id/ivProductQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/ivProductImage"
+            android:contentDescription="@null"
+            android:visibility="gone"
+            app:srcCompat="@drawable/question_icon_selector" />
+
+        <ImageView
+            android:id="@+id/ivProductImage"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_above="@+id/tvProductTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp"
+            android:contentDescription="@null"
+            android:paddingTop="4dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/powerol_logo" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

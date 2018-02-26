@@ -1,0 +1,14 @@
+<tabs>
+    <tab
+        icon="@drawable/user"
+        id="@+id/tab_view_by_me"
+        title="By Me" />
+    <tab
+        icon="@drawable/usergroup"
+        id="@+id/tab_view_by_other"
+        title="By Other" />
+    <!--<tab-->
+        <!--icon="@drawable/clock"-->
+        <!--id="@+id/tab_my_other"-->
+        <!--title="My History" />-->
+</tabs>

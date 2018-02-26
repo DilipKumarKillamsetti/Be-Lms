@@ -1,0 +1,124 @@
+{
+  "project_info": {
+    "project_number": "908469524568",
+    "firebase_url": "https://mahindra-pkb.firebaseio.com",
+    "project_id": "mahindra-pkb",
+    "storage_bucket": "mahindra-pkb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908469524568:android:719d6e8a6423f105",
+        "android_client_info": {
+          "package_name": "mahindra.powerol.pkb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908469524568-0cemp3sm9nmal61303i8nsuqht9d9pnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdSH6K0ssXJDosdgmIRxYl61gWDjRnqks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908469524568:android:e0447a0f18b40615",
+        "android_client_info": {
+          "package_name": "mahindra.agri.astra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908469524568-16c9bgmtq85ek0f54qfn25lu1v7dti98.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mahindra.agri.astra",
+            "certificate_hash": "741ea503337111d86dbfa10cb695e20b0b97862c"
+          }
+        },
+        {
+          "client_id": "908469524568-0cemp3sm9nmal61303i8nsuqht9d9pnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdSH6K0ssXJDosdgmIRxYl61gWDjRnqks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908469524568-t6rgq0mjd1i7rt7dvgrrsf1pp7v2hmcr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mahindra.BE-LMS"
+              }
+            },
+            {
+              "client_id": "908469524568-0cemp3sm9nmal61303i8nsuqht9d9pnd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908469524568:android:906b15fa0e98083c",
+        "android_client_info": {
+          "package_name": "com.mahindra.be_lms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908469524568-0cemp3sm9nmal61303i8nsuqht9d9pnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdSH6K0ssXJDosdgmIRxYl61gWDjRnqks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

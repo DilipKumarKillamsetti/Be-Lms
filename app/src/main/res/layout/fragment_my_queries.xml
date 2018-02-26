@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mahindra.be_lms.fragments.MyQueriesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingbtnAddQuery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/rvMyQueriesFragmentList"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/btn_add_query_margin"
+        android:clickable="true"
+        android:src="@drawable/ic_add_black_24dp"
+        app:fabSize="normal" />
+
+    <!--<Button
+        android:id="@+id/btnaddQuery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Add Query"
+        android:layout_marginRight="8dp"
+        android:visibility="gone"/>-->
+    <TextView
+        android:id="@+id/tvNotificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawableLeft="@drawable/queries_title"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/custom_layout_padding_16dp"
+        android:paddingRight="@dimen/custom_layout_padding_16dp"
+        android:text="@string/nav_query_management"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_18sp" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tvNotificationTitle"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/tvMyQueriesFragmentRecordNotFound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer_view"
+        android:gravity="center"
+        android:text="@string/no_record_found"
+        android:textSize="@dimen/text_24sp"
+        android:visibility="gone" />
+    <include
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/retryButtonLayout"
+        layout="@layout/retry_button_layout"
+        android:layout_above="@+id/footer_view"
+        android:layout_below="@+id/view1"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMyQueriesFragmentList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer_view"
+        android:layout_below="@+id/view1"
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/footer_view"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
+</RelativeLayout>

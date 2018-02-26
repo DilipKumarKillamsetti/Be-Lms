@@ -1,0 +1,26 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tvMyTechnicalUploadNoRecord"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_record_found"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:visibility="gone" />
+    <include
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/retryButtonLayout"
+        layout="@layout/retry_button_layout"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvTechnicalUpload"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,12 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/header_color" />
+        </shape>
+    </item>
+    <!--<item>-->
+        <!--&lt;!&ndash;<bitmap&ndash;&gt;-->
+            <!--&lt;!&ndash;android:src="@drawable/img_top_streep_trans"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:tileMode="disabled" />&ndash;&gt;-->
+    <!--</item>-->
+</layer-list>

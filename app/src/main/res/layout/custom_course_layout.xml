@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_learn_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/custom_layout_padding_16dp">
+
+    <TextView
+        android:id="@+id/tvCourseFragmentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:text="TextView"
+        android:textSize="@dimen/title_textsize"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/tvCourseFragmentDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/custom_learn_quiztest_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/custom_learn_text_layout_top_margin"
+        android:background="@drawable/comment_background"
+        android:orientation="horizontal"
+        android:stateListAnimator="@animator/comment_selection"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvCourseQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/cardview_compat_inset_shadow"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/course_quiz_text"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/tvCourseTestPaper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/custom_learn_text_layout_top_margin"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/course_testpaper_text"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+
+</LinearLayout>

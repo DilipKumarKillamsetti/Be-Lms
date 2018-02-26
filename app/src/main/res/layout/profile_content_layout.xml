@@ -1,0 +1,209 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer_view">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/register_first_name" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/register_last_name" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etProfileFirstName"
+                    style="@style/register_edittext_style"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textAppearance="@android:style/TextAppearance.Medium" />
+
+                <EditText
+                    android:id="@+id/etProfileLastName"
+                    style="@style/register_edittext_style"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="@dimen/profile_lebal_top_margin"
+                android:text="@string/register_email" />
+
+            <EditText
+                android:id="@+id/etProfileEmail"
+                style="@style/register_edittext_style"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="@dimen/profile_lebal_top_margin"
+                android:text="Company" />
+
+            <EditText
+                android:id="@+id/spProfileCompanyName"
+                style="@style/profile_edittext_style"
+                android:inputType="text|textCapWords|textNoSuggestions"
+                android:visibility="gone"/>
+            <Spinner
+                android:id="@+id/companySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"></Spinner>
+
+            <ProgressBar
+                android:id="@+id/progressBarCompany"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/designationLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="@dimen/profile_lebal_top_margin"
+                android:text="Department" />
+            <Spinner
+                android:id="@+id/designationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"></Spinner>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="@dimen/profile_lebal_top_margin"
+                android:text="@string/profile_label_designation" />
+
+            <RelativeLayout
+                android:id="@+id/rlProfileDesignation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/profil_layout_left_margin"
+                android:layout_marginRight="3dp"
+                android:layout_weight=".28"
+                android:background="@drawable/spinner_background"
+                android:orientation="horizontal">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoTextProfileDesignation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:completionThreshold="1"
+                    android:ems="12"
+                    android:hint="@string/profile_hint_enter_designation" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="@dimen/profile_lebal_top_margin"
+                android:text="@string/profile_label_location" />
+
+            <RelativeLayout
+                android:id="@+id/rlProfileLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/profil_layout_left_margin"
+                android:layout_marginRight="3dp"
+                android:layout_weight=".28"
+                android:background="@drawable/spinner_background"
+                android:orientation="horizontal">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoTextProfileLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:completionThreshold="1"
+                    android:ems="12"
+                    android:hint="@string/profile_hint_enter_location" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="@dimen/profile_lebal_top_margin"
+                android:text="DOB" />
+
+            <TextView
+                android:id="@+id/tvProfileDOB"
+                style="@style/register_edittext_style"
+                android:layout_marginLeft="@dimen/profil_layout_left_margin"
+                android:background="@drawable/spinner_background"
+                android:hint="DOB"
+                android:paddingBottom="10dp"
+                android:paddingRight="8dp"
+                android:paddingTop="10dp" />
+
+            <Button
+                android:id="@+id/btn_profile_update"
+                style="@style/squre_round_filled_button_yellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/profile_btn_update"
+                android:textAllCaps="false"
+                android:textAppearance="@android:style/TextAppearance.Medium" />
+        </LinearLayout>
+    </ScrollView>
+    <include
+        android:id="@+id/footer_view"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:visibility="gone"/>
+</RelativeLayout>

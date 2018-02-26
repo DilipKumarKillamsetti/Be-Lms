@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.mahindra.be_lms.activities.SearchActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/custom_layout_padding_16dp"
+        android:visibility="gone"
+        android:id="@+id/linearLayout">
+        <!--<TextView
+            android:text="@string/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9" />
+    -->
+        <EditText
+            android:id="@+id/etSearchText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            android:ems="10"
+            android:hint="Search"
+            android:inputType="textPersonName" />
+
+        <RelativeLayout
+            android:id="@+id/rrSearchModel"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edittext_background"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spSearchModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/drop" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnSearchSubmit"
+            style="@style/AppTheme.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/search" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvNotificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawableLeft="@drawable/search_title"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/custom_layout_padding_16dp"
+        android:paddingRight="@dimen/custom_layout_padding_16dp"
+        android:text="@string/search"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tvNotificationTitle"
+        android:background="@color/colorPrimary" />
+    <include
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/retryButtonLayout"
+        layout="@layout/retry_button_layout"
+        android:layout_below="@+id/view1"
+        android:visibility="gone" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rrSearchList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:background="@color/caldroid_lighter_gray"
+        android:layout_below="@id/view1"/>
+
+
+    <TextView
+        android:id="@+id/tvNoRecordFound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_record_found"
+        android:layout_below="@id/view1"
+        android:textSize="@dimen/text_24sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

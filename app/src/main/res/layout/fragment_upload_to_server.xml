@@ -1,0 +1,170 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llUploadToServer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.mahindra.be_lms.fragments.UploadToServerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:id="@+id/scUploadToServer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTechnicalUploadDisclaimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:drawableLeft="@drawable/nav_disclaimer"
+                android:drawablePadding="@dimen/margin_size_8dp"
+                android:gravity="center_vertical"
+                android:text="Disclaimer"
+                android:textAllCaps="true"
+                android:visibility="invisible"
+                android:textSize="@dimen/text_size_14sp"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:textColor="@color/colorPrimary" />
+
+            <RelativeLayout
+                android:id="@+id/rrUploadToServerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/spinner_background"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Spinner
+                    android:id="@+id/spUploadToServerCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_toLeftOf="@+id/ivCategory"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/ivCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/drop" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rrUploadToServerSubCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/spinner_background"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Spinner
+                    android:id="@+id/spUploadToServerSubCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_toLeftOf="@+id/ivSubCategory"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/ivSubCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/drop" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/etUploadToServerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="@dimen/margin_size_10dp"
+                android:background="@drawable/retry_btn_background"
+                android:hint="@string/upload_document_title_hint"
+                android:padding="@dimen/padding_size_5dp"
+                android:textSize="@dimen/text_size_16sp"
+                android:inputType="textPersonName|textNoSuggestions" />
+
+            <EditText
+                android:id="@+id/etUploadToServerDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:hint="@string/upload_doc_keywords_hint"
+                android:textSize="@dimen/text_size_16sp"
+                android:layout_marginTop="@dimen/margin_size_10dp"
+                android:padding="@dimen/padding_size_5dp"
+                android:background="@drawable/retry_btn_background"
+                android:inputType="textMultiLine"
+                android:longClickable="false"
+                android:minLines="5"
+                android:scrollbars="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_size_10dp"
+                android:background="@drawable/retry_btn_background"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/tvUploadToServerFilePath"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:gravity="center_vertical"
+                    android:hint="@string/select_file"
+                    android:paddingLeft="@dimen/textview_left_padding_8dp"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <ImageButton
+                    android:id="@+id/ibtnUploadToServerSelectFile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/btn_retry_selector"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/attachment" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnUploadToServerSumbit"
+                style="@style/AppTheme.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textSize="@dimen/text_size_16sp"
+                android:text="@string/btn_upload_label" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

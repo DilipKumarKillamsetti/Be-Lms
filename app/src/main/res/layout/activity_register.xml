@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sc_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:scrollbars="none"
+    tools:context="com.mahindra.be_lms.activities.RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/llRegisterMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="REGISTRATION"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/textTitle" />
+
+        <LinearLayout
+            android:id="@+id/activity_register"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/text_size_14sp"
+                        android:text="@string/register_first_name" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/text_size_14sp"
+                        android:text="@string/register_last_name" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etRegisterFirstName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/text_size_14sp"
+                        android:inputType="text|textCapWords|textNoSuggestions"
+                        android:maxLines="1"
+                        android:textAppearance="@android:style/TextAppearance.Medium" />
+
+                    <EditText
+                        android:id="@+id/etRegisterLastName"
+                        style="@style/register_edittext_style"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/text_size_14sp"
+                        android:inputType="text|textCapWords|textNoSuggestions"
+                        android:maxLines="1" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:text="@string/register_user_name" />
+
+                <EditText
+                    android:id="@+id/etRegisterUserName"
+                    style="@style/register_edittext_style"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:inputType="text|textCapWords|textNoSuggestions"
+                    android:textAppearance="@android:style/TextAppearance.Medium" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:text="@string/register_user_password" />
+
+                <EditText
+                    android:id="@+id/etRegisterPassword"
+                    style="@style/register_edittext_style"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:inputType="text|textPassword|textNoSuggestions"
+                    android:textAppearance="@android:style/TextAppearance.Medium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:text="@string/register_mobile_no" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etRegisterCountryCode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:digits="0123456789"
+                        android:hint="+91"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="4"
+                        android:textSize="@dimen/text_size_14sp"
+                        android:maxLines="1" />
+
+                    <EditText
+                        android:id="@+id/etRegisterMobileNo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.9"
+                        android:digits="0123456789"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:textSize="@dimen/text_size_14sp"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:textAppearance="@android:style/TextAppearance.Medium" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_note_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:text="@string/note_mobile_no_validation"
+                    android:textAppearance="@android:style/TextAppearance.Small"
+                    android:textColor="@color/mahindra_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:text="@string/register_user_emailId" />
+
+                <EditText
+                    android:id="@+id/etRegisterEmail"
+                    style="@style/register_edittext_style"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:inputType="textEmailAddress|textNoSuggestions"
+                    android:textAppearance="@android:style/TextAppearance.Medium" />
+
+                <Button
+                    android:id="@+id/btnRegistrationSendOTP"
+                    style="@style/AppTheme.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_18sp"
+                    android:text="@string/sign_up"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

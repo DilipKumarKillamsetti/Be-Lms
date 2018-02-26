@@ -1,0 +1,324 @@
+<resources>
+    <string name="app_name">BE-LMS</string>
+    <string name="secure_password">password</string>
+    <string name="tv_version_label">V</string>
+    <string name="full_appname">BE-LMS</string>
+    <string name="change_mobile_label"><u><b>Change Mobile Number</b></u></string>
+    <string name="btnLogin_label">Login</string>
+    <!--<string name="etusername_label">Mobile Number or Unique ID</string>-->
+    <string name="etusername_label">UserName</string>
+    <string name="etpassword_label">Password</string>
+    <string name="change_mo_no_msg">Change mobile number through unique ID</string>
+    <string name="et_forgot_password_label">Enter mobile number </string>
+    <string name="dialog_change_mobile_number_title">Change Mobile Number</string>
+    <string name="dialog_cancel">CANCEL</string>
+    <string name="dialog_submit">SUBMIT</string>
+    <string name="err_enter_unique_id">Please enter unique id</string>
+    <string name="validation_complete">Validation completed</string>
+    <string name="enter_otp_tv">Please enter one time verification code</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="btn_confirm_otp">Confirm OTP</string>
+    <string name="otp_activity">OTP</string>
+    <string name="otp_resend_msg">OTP sent successfully.</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="enter_confirm_password">Enter confirm password</string>
+    <string name="change_password_activity">Change Password</string>
+    <string name="register_last_name">Last name</string>
+    <string name="register_first_name">First name</string>
+    <string name="register_mobile_no">Mobile no</string>
+    <string name="register_btn_send_otp">SUBMIT</string>
+    <string name="err_mobile_length">Mobile no must be of 10 digits</string>
+    <string name="err_uniqueid_length">Unique ID length must be less then 10 digit</string>
+    <string name="err_enter_mobile">Enter mobile number</string>
+    <string name="err_enter_otp">Please enter OTP</string>
+    <string name="err_sp_none_selected">None selected</string>
+    <string name="err_password_confirpassword_not_match">New passowrd and confirm password must be same</string>
+    <string name="err_enter_confirm_password">Enter confirm password</string>
+    <string name="err_enter_email">Enter Email</string>
+    <string name="err_enter_valid_email">Enter valid Email</string>
+    <string name="err_password_length">Password length must be greater then 4 digit</string>
+    <string name="err_enter_password">Enter password</string>
+    <string name="err_select_company">Select Company</string>
+    <string name="err_select_designation">Select Designation</string>
+    <string name="err_select_location">Select Location</string>
+    <string name="err_enter_firstname">Enter first name</string>
+    <string name="err_enter_lastname">Enter last name</string>
+    <!--profile strings-->
+    <string name="profile_toolbar_title">Profile</string>
+    <string name="profile_btn_update">UPDATE</string>
+
+    <!--mainActivity string-->
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!--navigation options-->
+    <string name="nav_powerol_passport">My Profile</string>
+    <string name="nav_training_passport">My Training Passport</string>
+    <string name="nav_most_viewed">Most Viewed</string>
+    <string name="nav_my_history">My history</string>
+    <string name="nav_manual_and_bulletins">Manual &amp; Information</string>
+    <string name="nav_learning_quiz">Learning, Quiz &amp; Test Papers</string>
+    <string name="nav_training_calendar">Training Calendar</string>
+    <string name="nav_technical_uploads">Technical Uploads</string>
+    <string name="nav_logout">Logout</string>
+    <string name="profile_btn_my_technical_uploads">MY TECHNICAL UPLOADS</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="dialog_exit_msg">Do you really want to exit?</string>
+    <string name="no_record_found">No record found</string>
+    <string name="frg_most_viewed_title">Most Viewed</string>
+    <string name="frg_myhistory_title">My History</string>
+    <string name="frg_training_passport_title">My Training Passport</string>
+    <string name="course_quiz_text">Quiz</string>
+    <string name="course_testpaper_text">Test Paper</string>
+    <string name="frg_testpaper_title">Test Paper</string>
+    <string name="frg_quiz_title">Quiz</string>
+    <string name="tab_most_view_by_me">Most view by me</string>
+    <string name="tab_most_view_by_other">Most view by other</string>
+    <string name="frg_technical_uploads_title">Technical Uploads</string>
+    <string name="tab_technical_uploads_video">Video</string>
+    <string name="tab_technical_uploads_html">Html</string>
+    <string name="tab_technical_uploads_doc">Document</string>
+    <string name="description">Description</string>
+    <string name="bullet">\u25BA</string>
+    <string name="err_network_connection">Network connection not available</string>
+    <string name="err_enter_title">Enter Title</string>
+    <string name="err_enter_desc">Enter Keywords/Detail</string>
+    <string name="err_select_file">Select File</string>
+    <string name="profile_btn_my_queries">MY QUERIES</string>
+    <string name="frg_my_query_title">My Query</string>
+    <string name="frg_htmlView">HTMLView</string>
+    <string name="type_and_search">Type and search</string>
+    <string name="downloading">"Downloading "</string>
+    <string name="quiz_tag">QuizFragment</string>
+    <string name="event_tag">EventFragment</string>
+    <string name="test_paper_tag">TestPaperFragment</string>
+    <string name="product_parcelabel_tag">product</string>
+    <string name="testpaper_url_parcelable_tag">testpaper_url</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="query_parcelable_tag">query</string>
+    <string name="event_parcelable_tag">program</string>
+    <string name="err_enter_subject">Enter subject</string>
+    <string name="err_enter_body">Enter body</string>
+    <string name="frg_query_title">Query</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="add_photo">Add Photo!</string>
+    <string name="select_file">Select File</string>
+    <string name="course_parcelable_tag">course</string>
+    <string name="quiz_parcelable_tag">Quiz</string>
+    <string name="video_type">Video</string>
+    <string name="html_type">Html</string>
+    <string name="pdf_type">Pdf</string>
+    <string name="doc_type">Doc</string>
+    <string name="excel_type">Excel</string>
+    <string name="dialog_ok">OK</string>
+    <string name="empty_string" />
+    <string name="register_email">Email</string>
+    <string name="err_enter_dob">Enter DOB</string>
+    <string name="err_enter_doj">Enter DOJ</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="frg_model_title">Model</string>
+    <string name="err_select_category">Select Category</string>
+    <string name="err_select_subcategory">Select SubCategory</string>
+    <string name="model_parcelable_tag">model</string>
+    <string name="btn_change_mobile_number">Change Mobile Number</string>
+    <string name="etnew_mobile_number">Enter New Mobile Number</string>
+    <string name="change_mobile_no_activity">Change Mobile Number</string>
+    <string name="search">Search</string>
+    <string name="err_enter_search_value">Enter value for search</string>
+    <string name="doj_greater_than_dob">DOJ must be greater than DOB</string>
+    <string name="nav_survey_feedback">Surveys/Feedback</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="dialog_please_wait">Please wait</string>
+    <string name="dialog_inseting_data">Inserting data</string>
+    <string name="err_server_site">Something went wrong at server site</string>
+    <string name="otp_send_on_new_mobile">OTP send on new Mobile device</string>
+    <string name="tv_query_response_view">View</string>
+    <string name="tv_query_responses">Query Responses</string>
+    <string name="str_not_available">Not available</string>
+    <string name="enter_reply_for_your_query_response">Enter reply for your query response</string>
+    <string name="dialog_query_response_title">Query Response</string>
+    <string name="err_query_reply">Enter reply</string>
+    <string name="dialog_msg_query_reply">Do you want to close this query?</string>
+    <string name="frg_my_request_profile_title">Request Profile</string>
+    <string name="dialog_send_profile">Do you want to request for this profile ?</string>
+<!--<string name="about_us">
+<![CDATA[<p> • We at Mahindra Agri Service Training & Publications team committed for 100% uptime of Agri equipment with perfection in service for ultimate customer satisfaction.<br/> <br/>
+             • This mobile service application is designed for providing complete solutions for trouble shooting, product specifications, maintenance procedures, assembly procedures, product information and updates of Mahindra Agri Diesel Engine and Generators.<br/> <br/>
+             • Updates are very easily available to field team 24X7 & anywhere for onsite job.<br/> <br/>
+             • Mahindra & Mahindra Limited, the tractor and utility vehicle major in India, entered the field of Power Generation in 2002. Today the engines under the brand name Mahindra Agri are powering diesel generating sets form rating 5 kVA to 500 kVA. Since 2002 Mahindra Agri has sold over 270000 Diesel Generators and Industrial Engines. In today’s world, organizations will have to rapidly reengineer themselves and be more responsive to changing customer need. Mahindra, one of the world’s most trusted brands</p> ]]>
+    </string>-->
+ <string name="stringtxt_dislaimer">
+<![CDATA[ <p>
+
+         • The contents given in this application is subject to change any time without notice.<br/> <br/>
+         • Whilst every care has be taken in the compilation of information contained in this application, legal liability cannot be accepted by Mahindra Agri.<br/> <br/>
+         • All rights reserved. No part of the information given in this application may be reproduced, stored in a retrieval system, saved, photocopied, transmitted in any form without prior permission of Mahindra Agri.<br/> <br/>
+         • For any queries please contact Mahindra Agri Service Training & Publications department.
+
+         </p>]]>
+    </string>
+    <string name="stringtxt_safty">
+<![CDATA[ <p>
+
+• Use all safety equipment like safety shoe, helmet, hand gloves, goggles etc while working on machines.<br/> <br/>
+• Avoid wearing loose dresses may be pulled by rotating objects.<br/> <br/>
+• Disconnect battery from engine before doing any repairs on equipment.<br/> <br/>
+• Disable any possibility of auto start of engine. Put don’t operate board at the control room/panels.<br/> <br/>
+• Inform all concerned before staring repairs on machine.<br/> <br/>
+• Avoid any possibility of fire while working smoking, sparking etc.<br/> <br/>
+• Keep tools away from working area.<br/> <br/>
+• Take care of hot engine parts and avoid spill of hot liquids on body.<br/> <br/>
+• Follow electrical safety guidelines.<br/> <br/>
+• Wear Ground wire while working on AVRs and controllers to avoid failures of electronic circuits.<br/> <br/>
+• Disconnect all High voltage electrical supply.<br/> <br/>
+• Disconnect controller and AVRs like sophisticated equipment while doing welding and high voltage operations.<br/> <br/>
+• Avoid diesel and oil contact with hot engine components and during any welding job around.<br/> <br/>
+• Ensure the all electrical equipment is body and neutral grounded with proper earth pits while working on DG.<br/> <br/>
+• Seek presence of second person to protect incase of undue conditions.<br/> <br/>
+• Don’t work on machine while on alcohol.<br/> <br/>
+• Use lifting equipment and proper tolls as necessary.<br/> <br/>
+• Use tools that are in good condition.<br/> <br/>
+• Refer all documents related particular tools / procedures to avoid accidents.
+</p>]]>
+    </string>
+
+    <string name="contact_us">
+<![CDATA[ If you have any queries and suggestions please write to us on Feed back (Tab link to Feedback menu). Or write to us on<br/><br/>
+MALI.BHAGYASHRI@mahindra.com <br/>
+ZENDE.NILESH@mahindra.com<br/>
+<br/>
+</p>]]>
+</string>
+    <string name="no_response_availbale_for_this_query">No response available for this query</string>
+    <string name="profile_parceable_tag">profile</string>
+    <string name="new_to_pkm">New to m-Astra ?</string>
+    <string name="frg_by_me_title">Most View By Me</string>
+    <string name="frg_by_other_title">Most View By Other</string>
+    <string name="err_select_qualification">Select Qualification</string>
+    <string name="dialog_logout_msg">Do you really want to Logout</string>
+    <string name="btnQuizSubmit">Submit</string>
+    <string name="btnFeedbackSubmit">Submit</string>
+    <string name="enter_feedback">Enter Feedback</string>
+    <string name="dialog_close">close</string>
+    <string name="home_fragment_title">Welcome</string>
+    <string name="register_company_name">Company Name</string>
+    <string name="err_enter_company">Enter company name</string>
+    <string name="new_to_pkm_label">New to m-Astra ?</string>
+    <string name="enter_unique_id">Enter Username</string>
+    <string name="nav_my_field_records">My Field Records</string>
+    <string name="tab_technical_upload_new">Upload new technical document</string>
+    <string name="tab_technical_upload_by_me">Technical upload by me</string>
+    <string name="tab_technical_upload_by_other">Technical upload by others</string>
+    <string name="stringtxt_dislaimer_tech_upload">
+        <![CDATA[ <p>
+         The content uploaded by you (user) shall be related to Mahindra Agri Products and field experiences of Agri and Agri dealers teams.  User will be fully responsible and able to give explanation on the content shared.
+         The information shared by users will be reviewed by admin before making it available to other users.
+         Agri management is not going to take any action on the content shared from this module.
+         User queries on products to shall be asked by query module available on home page.</p>]]>
+    </string>
+    <string name="btnTrainingPssport_Option1_label">Present and Completed as well as Classroom Trainings</string>
+    <string name="btnTrainingPssport_Option2_label">Online Courses Completed</string>
+    <string name="btnTrainingPssport_Option3_label">Online Test Completed</string>
+    <string name="btnTrainingPssport_Option4_label">Online Quiz Completed</string>
+    <string name="btnTrainingPssport_Option5_label">Classroom Test Completed</string>
+    <string name="frg_my_field_records">My Field Records</string>
+    <string name="dialog_default_title">Here\'s a message!</string>
+    <string name="LOADING">Loading…</string>
+    <string name="training_passport_webview_activity">My Training Passport</string>
+    <string name="email_update_check_dialog_msg">Please update your Email ID first to view Learning quiz Test paper</string>
+    <string name="enter_company">Enter company</string>
+    <string name="home_search_btn_label">SEARCH</string>
+    <string name="home_powerol_care_btn_label">Agri Care</string>
+    <string name="no_notification_found">No notification found</string>
+    <string name="profile_image_updated_msg">Image updated successfully</string>
+    <string name="profile_userprofile_update_msg">Profile updated successfully..!!</string>
+    <string name="err_profile_image_capture_msg">Error while capturing image. Please try again</string>
+    <string name="err_msg_survey_give_atleast_one_question">Give at least one question answer</string>
+    <string name="otpfrg_otp_send_failed_msg">OTP sending failed</string>
+    <string name="click_on_this_image_to_select_picture">click on this image to select picture</string>
+    <string name="btn_query_submit">Submit</string>
+    <string name="somthing_went_wrong">Something went wrong please try again</string>
+    <string name="safty_and_warnings">Safety and Warnings</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="btn_upload_label">Upload</string>
+    <string name="notifications">Notifications</string>
+    <string name="profile_picture_activity_label">Profile Photo</string>
+    <string name="login_failed_msg">Login failed please try again.</string>
+    <string name="push_id_require_msg">Push ID is Required</string>
+    <string name="faq_help">FAQ/HELP</string>
+    <string name="profile_hint_enter_qualification">Enter Qualification</string>
+    <string name="profile_label_qualification">Qualification</string>
+    <string name="profile_hint_enter_location">Enter Location</string>
+    <string name="profile_label_location">Location</string>
+    <string name="profile_hint_enter_designation">Enter Designation</string>
+    <string name="profile_label_designation">Designation</string>
+    <string name="err_enter_valid_designation">Enter valid designation</string>
+    <string name="err_enter_valid_location">Enter valid location</string>
+    <string name="err_enter_valid_qualification">Enter valid qualification</string>
+    <string name="menu_right_yes">Y</string>
+    <string name="change_mobile_nubmber">Change Mobile Nubmber</string>
+    <string name="profile_data_not_set">Not updated</string>
+    <string name="note_mobile_no_validation"> <![CDATA[<B>Note:</B> Mobile number with country code is mandatory.]]></string>
+    <string name="note_login_mobile_no_validation"> <![CDATA[<B>Note:</B> To login using mobile number, mobile no with country code is mandatory]]></string>
+    <string name="err_enter_country_code">Enter country code</string>
+    <string name="err_country_code_plus_sign">Enter valid country code starts with +</string>
+    <string name="register_failed_msg">Registration failed please try again</string>
+    <string name="user_already_exists_msg">User with these details is already exists. Please login or contact to admin.</string>
+    <string name="msg_mobile_no_chnaged">Mobile number changed successfully.</string>
+    <string name="notifications_not_available">Notifications not available</string>
+    <string name="next_btn_label">NEXT</string>
+    <string name="nav_query_management">Queries &amp; Response System</string>
+    <string name="upload_doc_keywords_hint">Description</string>
+    <string name="upload_document_title_hint">Document Title</string>
+    <string name="notification_attachment_label"><u>Attachment</u></string>
+    <string name="user_help">User Help</string>
+    <string name="type_text">Search Text</string>
+    <string name="contact_to_admin">Contact to Admin</string>
+    <string name="webpage_cache_pref">webpage_cache_pref</string>
+    <string name="versionname">Version 1.0 UAT</string>
+    <string name="course_list_title">Course List</string>
+    <string name="total_course_text">Total Course: 4</string>
+    <string name="learn_test_label"><![CDATA[Learn & Test]]></string>
+    <string name="start_text">Start</string>
+    <string name="btnAttemp_quiz">Attempt Quiz Now</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnContinue">Continue</string>
+    <string name="etuserpassword_label">Enter your password</string>
+    <string name="err_enter_username">Enter your  username.</string>
+    <string name="btnAttempt_label">Return to attempt</string>
+    <string name="btnFinish_label"><![CDATA[Submit & Finish]]></string>
+    <string name="btnContinue_last_label">Continue the last attempt</string>
+    <string name="marksString">Marks/8.00</string>
+    <string name="moreText"><u>More</u></string>
+    <string name="hideText"><u>Hide</u></string>
+    <string name="register_user_name">UserName</string>
+    <string name="register_user_password">Password</string>
+    <string name="register_user_emailId">Email</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="err_password_pattern">At least 1 Number, 1 special characters,1 lower case and 1 upper case letter.</string>
+    <string name="survey_list">Survey List</string>
+    <string name="message_hint_text">Enter message</string>
+    <string name="review_text"><u>Review</u></string>
+    <string name="survey_label">Start Survey</string>
+    <string name="no_event_found">No events available.</string>
+    <string name="error_no_camera">No camera.</string>
+    <string name="nav_news_update"><![CDATA[News & Update]]></string>
+    <string name="err_feedback_connection">Feedback already submitted.</string>
+    <string name="err_failed_connection">Something went wrong.</string>
+    <string name="forgot_pwd">Please enter your registered username.</string>
+    <string name="sucess_pwd_send">Password sent successfully on your register email.</string>
+    <string name="forgot_pwd_label"><u><b>Forgot Password</b></u></string>
+    <string name="nominate_text">Nominate</string>
+    <string name="etmusername_label">Mahindra/TokenId</string>
+    <string name="welcome_text"><b>Welcome</b></string>
+    <string name="btn_acccept">Accept</string>
+    <string name="text_disclaimer">Disclaimer</string>
+
+</resources>

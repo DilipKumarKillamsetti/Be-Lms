@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="@dimen/margin_size_3dp"
+        android:layout_marginRight="@dimen/margin_size_3dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/new_grey_bg"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.mahindra.be_lms.util.CircularImageView
+                android:id="@+id/header_imageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/user_new"
+                app:border="true"
+                app:border_color="@color/white"
+                app:border_width="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_size_8dp"
+                android:text="Vijay Kumavat"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/text_size_18sp" />
+
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_margin="@dimen/margin_size_8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write Something...."
+            android:gravity="start"
+            android:background="@drawable/new_edittext_background"
+            android:lines="4" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/margin_size_8dp"
+            android:layout_height="150dp"
+            android:background="@drawable/new_edittext_background"
+            android:src="@drawable/coming_soon_icon"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/margin_size_8dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:layout_width="wrap_content"
+                android:src="@drawable/icn_remove"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:textSize="@dimen/text_size_14sp"/>
+            <ImageView
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:layout_width="wrap_content"
+                android:src="@drawable/icn_file"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_14sp"
+                android:text="File"/>
+            <ImageView
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:layout_width="wrap_content"
+                android:src="@drawable/icn_tag"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_14sp"
+                android:text="Tag"/>
+            <ImageView
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:layout_width="wrap_content"
+                android:src="@drawable/icn_location"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textSize="@dimen/text_size_14sp"
+                android:layout_margin="@dimen/margin_size_3dp"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post"
+            android:layout_margin="@dimen/margin_size_8dp"
+            style="@style/squre_round_filled_button_yellow"/>
+
+    </LinearLayout>
+
+</LinearLayout>

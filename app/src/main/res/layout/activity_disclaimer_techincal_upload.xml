@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_disclaimer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mahindra.be_lms.activities.DisclaimerActivity">
+
+    <!-- <ScrollView
+         android:id="@+id/sc"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:scrollbars="none"
+         android:padding="8dp" >
+
+         <LinearLayout
+             android:id="@+id/lin"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <TextView
+                 android:id="@+id/tv_disc_cont"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical|right"
+                 android:layout_marginTop="2dp"
+                 android:padding="5dp"
+
+                 android:textSize="17dp"
+                 android:textColor="@color/Black" />
+
+         </LinearLayout>
+     </ScrollView>-->
+    <TextView
+        android:id="@+id/tvDisclaimerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:drawableLeft="@drawable/nav_disclaimer"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/custom_layout_padding_16dp"
+        android:paddingRight="@dimen/custom_layout_padding_16dp"
+        android:text="@string/disclaimer"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tvDisclaimerTitle"
+        android:background="@color/colorPrimary" />
+
+    <ScrollView
+        android:id="@+id/sc_technicalDisclaimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer_view"
+        android:layout_below="@+id/tvDisclaimerTitle"
+        android:scrollbars="none"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/ll_padding_8dp">
+
+            <com.uncopt.android.widget.text.justify.JustifiedTextView
+                android:id="@+id/tv_technical_disclaimer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="@android:style/TextAppearance.Medium" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/footer_view"
+        layout="@layout/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:id="@+id/main_content"
+    >
+
+    <com.mahindra.be_lms.temp.CompactCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compactcalendar_view"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        app:compactCalendarTargetHeight="250dp"
+        app:compactCalendarTextSize="12sp"
+        app:compactCalendarBackgroundColor="#fff"
+        app:compactCalendarTextColor="@color/colorPrimary"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="@color/caldroid_lighter_gray"
+        app:compactCalendarCurrentDayBackgroundColor="@color/caldroid_light_red"
+        app:compactCalendarCurrentDayIndicatorStyle="fill_large_indicator"
+        app:compactCalendarEventIndicatorStyle="small_indicator"
+        app:compactCalendarOtherMonthDaysTextColor="#534c4c"
+        app:compactCalendarShouldSelectFirstDayOfMonthOnScroll="true"
+        />
+
+    <Button
+        android:layout_below="@+id/compactcalendar_view"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/prev_button"
+        android:text="Previous"
+        style="@style/AppTheme.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/monthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_24sp"
+        android:layout_alignBaseline="@+id/next_button"
+        android:layout_alignBottom="@+id/next_button"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_below="@+id/compactcalendar_view"
+        android:layout_alignParentRight="true"
+        android:id="@+id/next_button"
+        android:text="Next"
+        style="@style/AppTheme.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/calendar_control_buttons"
+        android:layout_below="@+id/prev_button"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_below="@+id/compactcalendar_view"
+            android:text="Change Locale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/set_locale" />
+
+        <Button
+            android:layout_below="@+id/compactcalendar_view"
+            android:text="Remove all events"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:id="@+id/remove_all_events" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:id="@+id/calendar_control_buttons_2"
+        android:layout_below="@+id/calendar_control_buttons"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/slide_calendar"
+            android:text="Slide animation"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/show_with_animation_calendar"
+            android:text="Expose animation"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/bookings_listview"
+        android:layout_below="@+id/calendar_control_buttons_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ListView>
+
+</RelativeLayout>

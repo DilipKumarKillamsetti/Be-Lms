@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_search"
+        android:title="Search" />
+    <item
+        android:id="@+id/menu_sync"
+        android:title="Sync" />
+    <item
+        android:id="@+id/menu_disclaimer"
+        android:title="Disclaimer" />
+    <item
+        android:id="@+id/menu_safety"
+        android:title="Safety and Warnings" />
+    <item
+        android:id="@+id/menu_notification"
+        android:title="Notification" />
+    <item
+        android:id="@+id/menu_feedback"
+        android:title="Feedback" />
+    <item
+        android:id="@+id/menu_about_us"
+        android:title="About Us" />
+    <item
+        android:id="@+id/menu_contact_us"
+        android:title="Contact Us" />
+
+</menu>

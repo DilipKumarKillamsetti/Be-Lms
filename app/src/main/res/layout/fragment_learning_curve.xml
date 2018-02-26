@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_size_8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_mytc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:background="@drawable/new_grey_bg">
+
+                <com.mahindra.be_lms.util.CircularImageView
+                    android:id="@+id/iv_tranning_cal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_mt"
+                    app:border="true"
+                    app:border_color="@color/white"
+                    app:border_width="4dp"
+                    app:layout_collapseMode="parallax"
+                    app:shadow="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_size_8dp"
+                    android:layout_weight="1"
+                    android:text="My Trainings"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/text_size_18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_myel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:background="@drawable/new_grey_bg">
+
+                <com.mahindra.be_lms.util.CircularImageView
+                    android:id="@+id/iv_Profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_myel"
+                    app:border="true"
+                    app:border_color="@color/white"
+                    app:border_width="4dp"
+                    app:layout_collapseMode="parallax"
+                    app:shadow="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_size_8dp"
+                    android:layout_weight="1"
+                    android:text="My E - Learning"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/text_size_18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_mytys"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:background="@drawable/new_grey_bg">
+
+                <com.mahindra.be_lms.util.CircularImageView
+                    android:id="@+id/iv_test_skills"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_myter"
+                    app:border="true"
+                    app:border_color="@color/white"
+                    app:border_width="4dp"
+                    app:layout_collapseMode="parallax"
+                    app:shadow="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_size_8dp"
+                    android:layout_weight="1"
+                    android:text="My Test/Exam Results"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/text_size_18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_myfss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:background="@drawable/new_grey_bg">
+
+                <com.mahindra.be_lms.util.CircularImageView
+                    android:id="@+id/iv_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_feedback"
+                    app:border="true"
+                    app:border_color="@color/white"
+                    app:border_width="4dp"
+                    app:layout_collapseMode="parallax"
+                    app:shadow="true" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_size_8dp"
+                    android:layout_weight="1"
+                    android:text="My Feedback/Suggestions/Survey"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/text_size_18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_myep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_size_3dp"
+                android:background="@drawable/new_grey_bg">
+
+                <com.mahindra.be_lms.util.CircularImageView
+                    android:id="@+id/iv_tranning_request"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_myep"
+                    app:border="true"
+                    app:border_color="@color/white"
+                    app:border_width="4dp"
+                    app:layout_collapseMode="parallax"
+                    app:shadow="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_size_8dp"
+                    android:layout_weight="1"
+                    android:text="My Excellence Post"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/text_size_18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llnotificationMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvNotificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:gravity="right"
+        android:textColor="@color/Black"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/tvNotificationMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:layout_marginTop="@dimen/margin_size_3dp"
+        android:textColor="@color/Black"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/llNotiAttachment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="Attachment: "
+            android:textColor="@color/Black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvNotificationAttachmentLink"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.7"
+            android:maxLines="2"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llNotiDocumentLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="Document: "
+            android:textColor="@color/Black"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivNotificationDocumentIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/unknown_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNotificationDocumentLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:maxLines="1"
+                android:text="Document Name"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                android:textStyle="normal|bold" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/textView16"
+                    style="@style/textTitle.Red"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Quiz :" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    style="@style/textTitle.Red"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Attempt No :" />
+
+                <TextView
+                    android:id="@+id/textView17d"
+                    style="@style/textTitle.Red"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Date :" />
+
+
+                <TextView
+                    android:id="@+id/textView17dd"
+                    style="@style/textTitle.Red"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Percentage :" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMyTrainingPassportFragmentQuizName"
+                    style="@style/textTitle"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="POST TEST" />
+
+                <TextView
+                    android:id="@+id/tvMyTrainingPassportFragmentAttemptNo"
+                    style="@style/textTitle"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="2" />
+
+                <TextView
+                    android:id="@+id/tvMyTrainingPassportFragmentQuizDate"
+                    style="@style/textTitle"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="15/06/2016" />
+
+                <TextView
+                    android:id="@+id/tvMyTrainingPassportFragmentQuizPercentage"
+                    style="@style/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+
+                    android:text="110%" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCloseQuizDialog"
+            style="@style/AppTheme.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/dialog_close" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mahindra.be_lms.fragments.MyTrainingPassportFragment">
+    <TextView
+        android:id="@+id/tvMyTrainingPassportFragmentRecordNotFound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/text_24sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/no_record_found" />
+    <include
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/retryButtonLayout"
+        layout="@layout/retry_button_layout"
+        android:visibility="gone" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMyTrainingPassportFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer_view"/>
+    <!--<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer_view"
+        android:layout_margin="5dp"
+        android:gravity="left">
+
+        <Button
+            android:id="@+id/btnTraningPassportOption1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:background="@drawable/edittext_background"
+            android:text="@string/btnTrainingPssport_Option1_label"
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+        <Button
+            android:id="@+id/btnTraningPassportOption2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:background="@drawable/edittext_background"
+            android:text="@string/btnTrainingPssport_Option2_label"
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+        <Button
+            android:id="@+id/btnTraningPassportOption3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:background="@drawable/edittext_background"
+            android:text="@string/btnTrainingPssport_Option3_label"
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+
+        <Button
+            android:id="@+id/btnTraningPassportOption4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:background="@drawable/edittext_background"
+            android:text="@string/btnTrainingPssport_Option4_label"
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+
+        <Button
+            android:id="@+id/btnTraningPassportOption5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:background="@drawable/edittext_background"
+            android:text="@string/btnTrainingPssport_Option5_label"
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+    </LinearLayout>-->
+    <!--<include layout="@layout/coming_soon_layout"></include>-->
+
+</RelativeLayout>

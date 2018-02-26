@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+   <include
+       android:id="@+id/ll_header"
+       layout="@layout/new_header_dashboard"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+   <RelativeLayout
+       android:id="@+id/rlTechnicalUploadFirstLayout"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_gravity="center"
+       android:layout_above="@+id/rlTechnicalUploadSecondLayout"
+       android:layout_below="@+id/view1">
+
+      <FrameLayout
+          android:id="@+id/contentContainer_home"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginTop="@dimen/margin_size_3dp"
+          android:layout_below="@+id/ntb"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true" />
+
+      <com.roughike.bottombar.BottomBar
+          android:id="@+id/menuBar_dashboard"
+          android:gravity="center"
+          android:layout_width="match_parent"
+          android:layout_alignParentTop="true"
+          android:background="@color/light_blue"
+          android:visibility="gone"
+          android:layout_height="60dp"
+          app:bb_activeTabColor="@color/yellow"
+          app:bb_tabXmlResource="@xml/dashboard_menu" />
+       <devlight.io.library.ntb.NavigationTabBar
+           android:id="@+id/ntb"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           app:ntb_animation_duration="400"
+           app:ntb_active_color="#fff"
+           app:ntb_inactive_color="#000"
+           app:ntb_badged="true"
+           app:ntb_titled="true"
+           app:ntb_scaled="true"
+           app:ntb_tinted="true"
+           android:layout_alignParentTop="true"
+           app:ntb_title_mode="all"
+           app:ntb_badge_position="right"
+           app:ntb_badge_gravity="top"
+           app:ntb_badge_bg_color="#ffff0000"
+           app:ntb_badge_title_color="#ffffffff"
+           app:ntb_typeface="fonts/custom_typeface.ttf"
+           app:ntb_badge_use_typeface="true"
+           app:ntb_swiped="true"
+           app:ntb_bg_color="@color/light_blue"
+           app:ntb_icon_size_fraction="0.5"
+           app:ntb_badge_size="10sp"
+           app:ntb_title_size="10sp"/>
+
+   </RelativeLayout>
+
+   <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+       <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+       <!--xmlns:tools="http://schemas.android.com/tools"-->
+       <!--android:id="@+id/dashboard_container"-->
+       <!--android:layout_width="match_parent"-->
+       <!--android:layout_height="match_parent"-->
+       <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+       <!--tools:context="com.mahindra.be_lms.activities.DashboardActivity"-->
+       <!--tools:showIn="@layout/app_bar_main"></RelativeLayout>-->
+
+</LinearLayout>
