@@ -26,6 +26,7 @@ public class MyTrainningPassportModel implements Parcelable  {
     private String grade;
     private String result;
     private String date;
+    private String state;
 
     public MyTrainningPassportModel(String quizid, String quizname, String coursename, String grade,String result,String date) {
         this.quizid = quizid;
@@ -87,7 +88,13 @@ public class MyTrainningPassportModel implements Parcelable  {
     }
 
 
+    public String getState() {
+        return state;
+    }
 
+    public void setState(String state) {
+        this.state = state;
+    }
 
     protected MyTrainningPassportModel(Parcel in) {
         this.quizid = in.readString();
@@ -96,6 +103,7 @@ public class MyTrainningPassportModel implements Parcelable  {
         this.grade = in.readString();
         this.result = in.readString();
         this.date = in.readString();
+        this.state = in.readString();
     }
 
 
@@ -112,6 +120,7 @@ public class MyTrainningPassportModel implements Parcelable  {
         dest.writeString(this.grade);
         dest.writeString(this.result);
         dest.writeString(this.date);
+        dest.writeString(this.state);
     }
 
 }

@@ -349,6 +349,13 @@ public class SurveyFeedbackFormFragment extends Fragment implements Callback,Net
     @Override
     public void myCallback(int position, String tag) {
     }
+
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
+
 //
 //    public void requestSaveFeedback(String url, final String questions) {
 //        L.pd("Save Feedback", "Please wait", getActivity());

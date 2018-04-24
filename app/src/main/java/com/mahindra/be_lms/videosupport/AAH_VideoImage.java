@@ -50,7 +50,8 @@ public class AAH_VideoImage extends FrameLayout {
         this.setTag("aah_vi");
         cvv = new AAH_CustomVideoView(getContext());
         iv = new ImageView(getContext());
-        iv.setScaleType(ImageView.ScaleType.FIT_XY);
+        iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        //iv.setAdjustViewBounds(true);
         this.addView(cvv);
         this.addView(iv);
     }

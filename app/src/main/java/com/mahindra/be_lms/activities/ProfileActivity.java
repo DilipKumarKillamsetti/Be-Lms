@@ -2,6 +2,7 @@ package com.mahindra.be_lms.activities;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -54,6 +55,7 @@ import com.mahindra.be_lms.lib.MyValidator;
 import com.mahindra.be_lms.lib.NetworkUtil;
 import com.mahindra.be_lms.lib.PKBDialog;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 import com.mahindra.be_lms.util.DBHelper;
 import com.mahindra.be_lms.util.ImageHelper;
 import com.mahindra.be_lms.volley.VolleySingleton;
@@ -93,6 +95,8 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
     EditText spProfileCompanyName;
     @BindView(R.id.tvProfileDOB)
     TextView tvProfileDOB;
+    @BindView(R.id.etRegisterMobileNo)
+    EditText etRegisterMobileNo;
     @BindView(R.id.autoTextProfileDesignation)
     AutoCompleteTextView autoTextProfileDesignation;
     @BindView(R.id.autoTextProfileLocation)
@@ -105,6 +109,9 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
     LinearLayout designationLay;
     @BindView(R.id.designationSpinner)
     Spinner designationSpinner;
+    @BindView(R.id.etProfileFunction)
+    EditText etProfileFunction;
+    private ProgressDialog progressDialog;
     private String strProfile;
     private MainActivity mainActivity;
     private List<Company> companyList;
@@ -139,15 +146,15 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
         // mytoolbar.inflateMenu(R.menu.user_menu);
         //  mytoolbar.setOnMenuItemClickListener(this);
 
-        if (L.isNetworkAvailable(this)) {
-            L.pd(getString(R.string.dialog_please_wait), this);
-            getCompanyList(Constants.BE_LMS_COMPANY_LIST_URL);
-        } else {
-            new PKBDialog(this, PKBDialog.WARNING_TYPE)
-                    .setContentText(getString(R.string.err_network_connection))
-                    .setConfirmText("OK")
-                    .show();
-        }
+//        if (L.isNetworkAvailable(this)) {
+//            L.pd(getString(R.string.dialog_please_wait), this);
+//            getCompanyList(Constants.BE_LMS_COMPANY_LIST_URL);
+//        } else {
+//            new PKBDialog(this, PKBDialog.WARNING_TYPE)
+//                    .setContentText(getString(R.string.err_network_connection))
+//                    .setConfirmText("OK")
+//                    .show();
+//        }
 
         companySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -268,6 +275,8 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
         etProfileFirstName.setText(user.getUserFirstName());
         etProfileLastName.setText(user.getUserLastName());
         etProfileEmail.setText(user.getUserEmailID());
+        etRegisterMobileNo.setText(user.getUserMobileNo());
+        etProfileFunction.setText(user.getUserOrgCode());
         int spinnerPosition = 0;
         if (!TextUtils.isEmpty(user.getUserOrg())) {
             spProfileCompanyName.setText(user.getUserOrg());
@@ -426,11 +435,12 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
             case R.id.btn_profile_update:
                 if (NetworkUtil.getConnectivityStatus(ProfileActivity.this) != 0) {
                     if (validateFields()) {
-                        user.setUserOrg(companyName);
-                        user.setUserOrgCode(departmentName);
+
+                        user.setUserOrgCode(etProfileFunction.getText().toString());
                         user.setUserFirstName(L.checkNull(L.getText(etProfileFirstName), ""));
                         user.setUserLastName(L.checkNull(L.getText(etProfileLastName), ""));
                         user.setUserEmailID(L.getText(etProfileEmail));
+                        user.setUserMobileNo(L.getText(etRegisterMobileNo));
                         user.setUserDesignationID(selected_desigID);
                         if (!L.checkNull(L.getText(tvProfileDOB))) {
                             user.setUserDOB(DateManagement.getFormatedDate(L.getText(tvProfileDOB), DateManagement.DD_MMMM_YYYY, DateManagement.DD_MM_YYYY));
@@ -439,7 +449,8 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
                         }
                         user.setUserLocationID(autoTextProfileLocation.getText().toString());
                         L.l(TAG, "updated user: " + user.toString());
-                        L.pd("Updating profile", "Please wait", ProfileActivity.this);
+                       progressDialog = new CustomProgressDialog(ProfileActivity.this,"");
+                        progressDialog.show();
                         request(Constants.BE_LMS_ROOT_URL + MyApplication.mySharedPreference.getUserToken() + "&wsfunction=core_user_update_users&moodlewsrestformat=json");
                     }
                 } else {
@@ -468,13 +479,14 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
             flag = false;
         } else if (!MyValidator.isValidEmail(etProfileEmail)) {
             flag = false;
-        } else if (!MyValidator.isValidField(autoTextProfileDesignation)) {
-            L.t(getString(R.string.err_enter_valid_designation));
-            flag = false;
         } else if (!MyValidator.isValidField(autoTextProfileLocation)) {
             L.t(getString(R.string.err_enter_valid_location));
             flag = false;
         } else if (!MyValidator.isValidField(tvProfileDOB, getString(R.string.err_enter_dob))) {
+            flag = false;
+        }else if (!MyValidator.isValidMobile(etRegisterMobileNo)) {
+            flag = false;
+        }else if (!MyValidator.isValidField(etProfileFunction)) {
             flag = false;
         }
         if (!L.checkNull(autoTextProfileDesignation.getText().toString())) {
@@ -612,18 +624,19 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 L.l(TAG, "RESAPONSE: " + response.toString());
                 try {
                     updateDisplay(response);
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    progressDialog.dismiss();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 L.l(TAG, "Volley ERROR: " + error.getMessage());
                 if (L.checkNull(error.getMessage())) {
                     new PKBDialog(ProfileActivity.this, PKBDialog.WARNING_TYPE)
@@ -643,13 +656,12 @@ public class ProfileActivity extends AppCompatActivity implements NetworkMethod 
                 }
                 params.put("users[0][id]", new MySharedPreference(ProfileActivity.this).getUserId());
                 params.put("users[0][email]", user.getUserEmailID());
-                params.put("users[0][departmentname]", user.getUserOrgCode());
-                params.put("users[0][positionname]", user.getUserDesignationID());
+                params.put("users[0][department]", user.getUserOrgCode());
+                params.put("users[0][phone1]", user.getUserMobileNo());
                 params.put("users[0][customfields][2][type]", "location");
                 params.put("users[0][customfields][2][value]", user.getUserLocationID());
                 params.put("users[0][customfields][3][type]", "DOB");
                 params.put("users[0][customfields][3][value]", "" + ts);
-                L.l(TAG, "PARAMS: " + params.toString());
                 return VolleySingleton.checkRequestparam(params);
             }
         };

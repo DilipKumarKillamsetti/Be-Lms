@@ -173,4 +173,10 @@ public class QuestionActivity extends BaseActivity implements NetworkMethod,Call
     public void myCallback(int position, String tag) {
 
     }
+
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
 }

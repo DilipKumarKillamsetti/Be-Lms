@@ -19,6 +19,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.mahindra.be_lms.MyApplication;
@@ -27,6 +28,7 @@ import com.mahindra.be_lms.activities.DashboardActivity;
 import com.mahindra.be_lms.activities.ProfilePictureActivity;
 import com.mahindra.be_lms.activities.ViewDocument;
 import com.mahindra.be_lms.util.ImageHelper;
+import com.mahindra.be_lms.util.TouchyWebView;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -36,7 +38,7 @@ import butterknife.ButterKnife;
  * Created by Dell on 2/12/2018.
  */
 
-public class ViewDocumentFragmnet extends Fragment {
+public class ViewDocumentFragmnet extends Fragment implements View.OnClickListener {
 
     @BindView(R.id.vv_video)
     VideoView videoView;
@@ -46,6 +48,14 @@ public class ViewDocumentFragmnet extends Fragment {
     ImageView iv_mamualInfo;
     @BindView(R.id.wv_mamualInfo)
     WebView wv_mamualInfo;
+    @BindView(R.id.tv_label)
+    TextView tv_label;
+    @BindView(R.id.twv_doc)
+    TouchyWebView twv_doc;
+    @BindView(R.id.tv_test)
+    TextView tv_test;
+    @BindView(R.id.tv_feedback)
+    TextView tv_feedback;
     private int position = 1;
     private DashboardActivity dashboardActivity;
     public ViewDocumentFragmnet(){
@@ -91,9 +101,13 @@ public class ViewDocumentFragmnet extends Fragment {
 
     public void init(){
 
+        tv_feedback.setOnClickListener(this);
+        tv_test.setOnClickListener(this);
+
         if (getArguments() != null) {
             String video_url = getArguments().getString("url");
             String type = getArguments().getString("type");
+            tv_label.setText(getArguments().getString("courseName")+":"+getArguments().getString("fileName"));
             if(type=="video"){
                 playVideo(video_url);
             }else if(type=="image"){
@@ -107,19 +121,19 @@ public class ViewDocumentFragmnet extends Fragment {
             }else if(type=="doc"){
                 videoView.setVisibility(View.GONE);
                 iv_mamualInfo.setVisibility(View.GONE);
-                wv_mamualInfo.setVisibility(View.VISIBLE);
+                twv_doc.setVisibility(View.VISIBLE);
                 final ProgressDialog dialog = new ProgressDialog(getActivity());
                 dialog.setMessage("Loading File, please wait...");
                 dialog.setCancelable(false);
                 dialog.show();
-                wv_mamualInfo.setWebViewClient(new WebViewClient() {
+                twv_doc.setWebViewClient(new WebViewClient() {
                     @Override
                     public void onPageFinished(WebView view, String url) {
                         super.onPageFinished(view, url);
                         if (dialog.isShowing()) {
                             dialog.dismiss();
                         }
-                        wv_mamualInfo.loadUrl("javascript:(function() { " +
+                        twv_doc.loadUrl("javascript:(function() { " +
                                 "document.querySelector('[role=\"toolbar\"]').remove();})()");
                     }
 
@@ -133,10 +147,13 @@ public class ViewDocumentFragmnet extends Fragment {
                 });
                // String docURL = getIntent().getStringExtra("doc_url");
                 String fURL = video_url.replace("forcedownload=1&","");
-                wv_mamualInfo.getSettings().setJavaScriptEnabled(true);
-                wv_mamualInfo.getSettings().setPluginState(WebSettings.PluginState.ON);
-                wv_mamualInfo.loadUrl("http://docs.google.com/gview?embedded=true&chrome=false&url=" + fURL);
-                wv_mamualInfo.getSettings().setLoadWithOverviewMode(true);
+                twv_doc.getSettings().setJavaScriptEnabled(true);
+                twv_doc.getSettings().setPluginState(WebSettings.PluginState.ON);
+                twv_doc.loadUrl("http://docs.google.com/gview?embedded=true&chrome=false&url=" + fURL);
+                twv_doc.getSettings().setLoadWithOverviewMode(true);
+                twv_doc.getSettings().setUseWideViewPort(true);
+                twv_doc.getSettings().setSupportZoom(true);
+                twv_doc.getSettings().setBuiltInZoomControls(true);
             }
 
         }
@@ -199,5 +216,20 @@ public class ViewDocumentFragmnet extends Fragment {
         videoView.stopPlayback();
         videoView.suspend();
 
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.tv_test:
+                dashboardActivity.replaceFrgament(new CourseListFragment());
+                break;
+            case R.id.tv_feedback:
+                dashboardActivity.replaceFrgament(new SurveyFeedbackFragment());
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -161,7 +161,11 @@ public class ProfileViewFragment extends Fragment {
         mytoolbar.setTitle(user.getUserFirstName());
         mytoolbar.setTitleTextColor(getActivity().getResources().getColor(R.color.Black));
         tvFullname.setText(user.getFullname() + " [ UID: " + user.getUsername() + " ]");
-        tvMobileno.setText(user.getUserMobileNo());
+        if (!TextUtils.isEmpty(user.getUserMobileNo())) {
+            tvMobileno.setText(user.getUserMobileNo());
+        } else {
+            tvMobileno.setText(getString(R.string.profile_data_not_set));
+        }
         if (!TextUtils.isEmpty(user.getUserEmailID())) {
             tvEmailID.setText(user.getUserEmailID());
         } else {

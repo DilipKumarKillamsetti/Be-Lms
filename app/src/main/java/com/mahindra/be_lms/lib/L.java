@@ -8,6 +8,8 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mahindra.be_lms.MyApplication;
+import com.mahindra.be_lms.R;
 
 
 /**
@@ -24,7 +27,7 @@ import com.mahindra.be_lms.MyApplication;
 
 public class L {
     private static final String MYTAG = "mytag";
-    private static AlertDialog.Builder builder;
+        private static AlertDialog.Builder builder;
     private static ProgressDialog dialog;
 
     public static void t(String txt) {
@@ -82,6 +85,21 @@ public class L {
         dialog = new ProgressDialog(context);
         dialog.setMessage(msg);
         dialog.setIcon(icon);
+        dialog.setCancelable(false);
+        dialog.setIndeterminate(false);
+        dialog.show();
+    }
+
+    public static void custom_pd( String msg, Context context) {
+        builder = new AlertDialog.Builder(context);
+//        LayoutInflater inflater = context.getLayoutInflater();
+//        alertDialog.setContentView(inflater.inflate(R.layout.custom_alert_view, null));
+        dialog.getWindow().setContentView(R.layout.custom_alert_view);
+        View view = LayoutInflater.from(context).inflate(
+                R.layout.custom_alert_view, null);
+        dialog = new ProgressDialog(context);
+        dialog.getWindow().setContentView(view);
+
         dialog.setCancelable(false);
         dialog.setIndeterminate(false);
         dialog.show();

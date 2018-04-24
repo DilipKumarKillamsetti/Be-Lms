@@ -124,6 +124,13 @@ public class QuizFragment extends Fragment implements Callback, NetworkMethod {
     }
 
     @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
+
+
+    @Override
     public void request(String url) {
         L.pd("Fetching Quiz Details", "Please wait", getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

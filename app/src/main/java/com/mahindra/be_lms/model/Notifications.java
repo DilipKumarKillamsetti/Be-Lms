@@ -38,6 +38,26 @@ public class Notifications implements Parcelable
     @SerializedName("date")
     @Expose
     private String date;
+    @SerializedName("userpic")
+    @Expose
+    private String userPic;
+    @SerializedName("description")
+    @Expose
+    private String description;
+    @SerializedName("sharedByName")
+    @Expose
+    private String sharedByName;
+    @SerializedName("location")
+    @Expose
+    private String location;
+    @SerializedName("attachment")
+    @Expose
+    private String attachment;
+
+
+
+
+
     public final static Parcelable.Creator<Notifications> CREATOR = new Creator<Notifications>() {
 
 
@@ -63,6 +83,8 @@ public class Notifications implements Parcelable
         this.course = ((String) in.readValue((String.class.getClassLoader())));
         this.notes = ((String) in.readValue((String.class.getClassLoader())));
         this.date = ((String) in.readValue((String.class.getClassLoader())));
+        this.userPic = ((String) in.readValue((String.class.getClassLoader())));
+        this.attachment = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     public Notifications() {
@@ -124,6 +146,46 @@ public class Notifications implements Parcelable
         this.date = date;
     }
 
+    public String getUserPic() {
+        return userPic;
+    }
+
+    public void setUserPic(String userPic) {
+        this.userPic = userPic;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSharedByName() {
+        return sharedByName;
+    }
+
+    public void setSharedByName(String sharedByName) {
+        this.sharedByName = sharedByName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(String attachment) {
+        this.attachment = attachment;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(id);
         dest.writeValue(userid);
@@ -132,6 +194,8 @@ public class Notifications implements Parcelable
         dest.writeValue(course);
         dest.writeValue(notes);
         dest.writeValue(date);
+        dest.writeValue(userPic);
+        dest.writeValue(attachment);
     }
 
     public int describeContents() {

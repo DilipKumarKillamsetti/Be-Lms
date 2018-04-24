@@ -19,6 +19,8 @@ public class QueryResponse {
     private String queryReplyAttachment;
     private String queryResponseExtraLink;
     private String queryResponseType;
+    private String userpic;
+    private String modified;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -112,6 +114,22 @@ public class QueryResponse {
 
     public void setQueryResponseType(String queryResponseType) {
         this.queryResponseType = queryResponseType;
+    }
+
+    public String getUserpic() {
+        return userpic;
+    }
+
+    public void setUserpic(String userpic) {
+        this.userpic = userpic;
+    }
+
+    public String getModified() {
+        return modified;
+    }
+
+    public void setModified(String modified) {
+        this.modified = modified;
     }
 
     // KEEP METHODS - put your custom methods here

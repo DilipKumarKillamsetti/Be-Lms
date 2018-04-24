@@ -29,21 +29,22 @@ public class Month extends RangeUnit {
     public boolean hasNext() {
 
         LocalDate maxDate = getMaxDate();
-        if (maxDate == null) {
-            return true;
-        } else {
-
-            LocalDate to = getTo();
-            int year = maxDate.getYear();
-            int yearTo = to.getYear();
-
-            int month = maxDate.getMonthOfYear();
-            int monthTo = to.getMonthOfYear();
-
-            return year > yearTo ||
-                    (year == yearTo && month > monthTo);
-
-        }
+//        if (maxDate == null) {
+//            return true;
+//        } else {
+//
+//            LocalDate to = getTo();
+//            int year = maxDate.getYear();
+//            int yearTo = to.getYear();
+//
+//            int month = maxDate.getMonthOfYear();
+//            int monthTo = to.getMonthOfYear();
+//
+//            return year > yearTo ||
+//                    (year == yearTo && month > monthTo);
+//
+//        }
+        return true;
     }
 
     @Override
@@ -65,6 +66,7 @@ public class Month extends RangeUnit {
                     (year == yearFrom && month < monthFrom);
 
         }
+//        return true;
     }
 
     @Override

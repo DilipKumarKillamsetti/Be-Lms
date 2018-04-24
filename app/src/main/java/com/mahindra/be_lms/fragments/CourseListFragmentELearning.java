@@ -1,6 +1,7 @@
 package com.mahindra.be_lms.fragments;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,7 @@ import com.mahindra.be_lms.lib.L;
 import com.mahindra.be_lms.lib.PKBDialog;
 import com.mahindra.be_lms.model.CourseModel;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 import com.mahindra.be_lms.volley.VolleySingleton;
 
 import org.json.JSONArray;
@@ -62,7 +64,7 @@ public class CourseListFragmentELearning extends Fragment  implements Callback,N
     LinearLayout retryButtonLayout;
     @BindView(R.id.btnRetry)
     Button btnRetry;
-
+    private ProgressDialog progressDialog;
     public CourseListFragmentELearning(){
 
     }
@@ -98,7 +100,8 @@ public class CourseListFragmentELearning extends Fragment  implements Callback,N
                 retryButtonLayout.setVisibility(View.GONE);
                 rvLearnTestQuizFragment.setVisibility(View.VISIBLE);
             }
-            L.pd(getString(R.string.dialog_please_wait), getActivity());
+            progressDialog = new CustomProgressDialog(getActivity(),"");
+            progressDialog.show();
             request(Constants.BE_LMS_ROOT_URL+MyApplication.mySharedPreference.getUserToken()+"&wsfunction=moodle_enrol_get_users_courses&userid="+MyApplication.mySharedPreference.getUserId()+"&moodlewsrestformat=json");
 
         } else {
@@ -179,7 +182,7 @@ public class CourseListFragmentELearning extends Fragment  implements Callback,N
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            L.dismiss_pd();
+            progressDialog.dismiss();
 
 //            String responseData = "{\"statusCode\":\"200\",\"result\":\"Success\",\"message\":\"Success\",\"data\":{\"id\":\"121\",\"username\":\"U000121\",\"firstname\":\"Vijay\",\"lastname\":\"Kumavat\",\"emailid\":\"v11.kumavat@yahoo.in\",\"mobileno\":\"+918149143550\",\"organization_code\":\"\",\"organization\":\"Krios\",\"picture\":\"\",\"location\":\"296\",\"designation\":\"4\",\"qualification\":\"25\",\"role\":\"Customer\",\"dob\":\"11-03-1999\",\"doj\":\"11-09-2017\",\"profiles\":\"Customer,Tester,Samriddhi\",\"groups\":\"MASL,Customer,Tester\",\"menurights\":{\"registration\":\"N\",\"search\":\"N\",\"powerolCare\":\"N\",\"mostViewed\":\"N\",\"myProfile\":\"N\",\"surveyFeedbacks\":\"N\",\"myTrainingPassport\":\"N\",\"learningTestQuizs\":\"N\",\"manualsBulletins\":\"Y\",\"trainingCalenderNomination\":\"N\",\"queriesResponse\":\"N\",\"technicalUploads\":\"N\",\"myFieldRecords\":\"N\",\"reports\":\"N\",\"manpowerEdition\":\"N\"}}}";
 //            updateDisplay(responseData);
@@ -187,7 +190,7 @@ public class CourseListFragmentELearning extends Fragment  implements Callback,N
     }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            L.dismiss_pd();
+            progressDialog.dismiss();
             L.l(getActivity(), "ERROR : " + error.getMessage());
             if (L.checkNull(error.getMessage())) {
                 new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
@@ -199,15 +202,16 @@ public class CourseListFragmentELearning extends Fragment  implements Callback,N
         VolleySingleton.getsInstance().addToRequestQueue(getRequest);
     }
 
-    public void replaceFrgament(Fragment fragment,String id) {
+    public void replaceFrgament(Fragment fragment,String id,String courseName) {
         L.l("Fragment SIMPLE NAME : " + fragment.getClass().getSimpleName());
 //        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 //        transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
         Bundle args = new Bundle();
         args.putString("id",id);
+        args.putString("cName",courseName);
         fragment.setArguments(args);
         getFragmentManager().beginTransaction()
-                .replace(R.id.myContainer, fragment, fragment.getClass().getSimpleName())
+                .replace(R.id.contentContainer_home, fragment, fragment.getClass().getSimpleName())
                 .addToBackStack(null)
                 .commit();
     }
@@ -219,8 +223,14 @@ public class CourseListFragmentELearning extends Fragment  implements Callback,N
 
     @Override
     public void myCallback(int position, String tag) {
-        //replaceFrgament(new LearnTestQuizFragment(),courseModels.get(position).getId());
-        dashboardActivity.replaceFrgament(new ManualInfoFragment());
+
+       replaceFrgament(new ManualInfoFragment(),courseModels.get(position).getId(),courseModels.get(position).getCourseName());
     }
+
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
 
 }

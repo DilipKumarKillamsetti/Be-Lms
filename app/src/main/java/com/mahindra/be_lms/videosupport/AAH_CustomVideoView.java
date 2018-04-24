@@ -60,9 +60,10 @@ public class AAH_CustomVideoView extends TextureView implements TextureView.Surf
     }
 
     public void startVideo() {
-//        Log.d("k9k9", "startVideo: ");
+
         if (!isPaused && _act!=null && !_act.isFinishing() && mSource!=null && !mSource.toString().isEmpty()) {
             setSurfaceTextureListener(this);
+
             if (this.getSurfaceTexture() != null) {
                 if (mMediaPlayer != null) {
                     mMediaPlayer.start();
@@ -119,6 +120,7 @@ public class AAH_CustomVideoView extends TextureView implements TextureView.Surf
 //                  mMediaPlayer.setOnBufferingUpdateListener(this);
 //                  mMediaPlayer.setOnErrorListener(this);
 //                        Log.d("k9looper", "isMainThread prepare on start: "+(Looper.myLooper() == Looper.getMainLooper()));
+
                         mMediaPlayer.setLooping(isLooping);
                         mMediaPlayer.setDataSource(_act, mSource);
                         mMediaPlayer.setSurface(surface);
@@ -131,6 +133,8 @@ public class AAH_CustomVideoView extends TextureView implements TextureView.Surf
                     } catch (IllegalStateException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
@@ -236,7 +240,11 @@ public class AAH_CustomVideoView extends TextureView implements TextureView.Surf
                                 mMediaPlayer.setSurface(surface);
                                 mMediaPlayer.prepare();
                                 if (mMediaPlayer != null) mMediaPlayer.start();
-                            } catch (Exception e) {
+                            }catch (IllegalStateException exception) {
+                                // Output expected IllegalStateException.
+                                exception.printStackTrace();
+                            }
+                            catch (Exception e) {
                                 Log.e("k9exception", "run: "+e.getMessage());
                                 e.printStackTrace();
                             }finally {
@@ -306,6 +314,13 @@ public class AAH_CustomVideoView extends TextureView implements TextureView.Surf
             mMediaPlayer.pause();
         }
     }
+    public void stopVideo() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
+    }
+
 
     public boolean isPlaying() {
         if (mMediaPlayer != null) {

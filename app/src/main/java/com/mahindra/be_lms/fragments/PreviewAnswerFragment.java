@@ -65,6 +65,12 @@ public class PreviewAnswerFragment extends Fragment implements Callback,NetworkM
     }
 
     @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
+
+    @Override
     public void request(String url) {
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,

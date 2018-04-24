@@ -9,4 +9,6 @@ public interface Callback {
 
     void myCallback(int position, String tag);
 
+    void myCallback(int position, String tag,String id,String action);
+
 }

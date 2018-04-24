@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.mahindra.be_lms.R;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +26,7 @@ public class ViewDocument extends BaseActivity {
 
     @BindView(R.id.wvDocPreview)
     WebView wvDocPreview;
-
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +49,18 @@ public class ViewDocument extends BaseActivity {
         String docName = getIntent().getStringExtra("doc_name");
         try {
             getSupportActionBar().show();
-            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.yellow)));
             actionBar.setTitle(docName);
             actionBar.setDisplayHomeAsUpEnabled(true);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-        final ProgressDialog dialog = new ProgressDialog(ViewDocument.this);
-        dialog.setMessage("Loading File, please wait...");
-        dialog.setCancelable(false);
+//        final ProgressDialog dialog = new ProgressDialog(ViewDocument.this);
+//        dialog.setMessage("Loading File, please wait...");
+//        dialog.setCancelable(false);
+        dialog = new CustomProgressDialog(this,"");
         dialog.show();
+
         wvDocPreview.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {

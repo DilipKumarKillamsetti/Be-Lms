@@ -129,6 +129,12 @@ public class QuizResultFeedback extends BaseActivity implements Callback, Networ
     }
 
     @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
+
+    @Override
     public void request(String url) {
         L.pd("Fetching data", "Please wait", this);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

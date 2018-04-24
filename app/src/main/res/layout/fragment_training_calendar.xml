@@ -45,8 +45,9 @@
         android:id="@+id/tvTrainingCalendarFragmentNRF"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/ll_tc"
+        android:layout_below="@+id/calendar"
         android:gravity="center"
+        android:layout_centerInParent="true"
         android:text="No event found"
         android:textSize="@dimen/text_24sp"
         android:visibility="gone" />
@@ -70,6 +71,7 @@
         app:ccv_headerTextColor="#FFFFFF"
         app:ccv_selectedDayBackgroundColor="#175662"
         app:ccv_state="month"
+        app:ccv_showInactiveDays="true"
         app:ccv_weekDayTextColor="@color/yellow" />
 
     <!--<LinearLayout-->
@@ -160,8 +162,9 @@
         android:id="@+id/tvNoEventFound"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/calendar"
+        android:layout_below="@id/calendar"
         android:gravity="center"
+        android:layout_centerInParent="true"
         android:text="@string/no_event_found"
         android:textSize="@dimen/text_24sp"
         android:visibility="gone" />

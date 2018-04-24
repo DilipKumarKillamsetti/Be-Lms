@@ -163,6 +163,11 @@ public class ResultFragment extends Fragment implements Callback,NetworkMethod,V
         replaceFrgament(new PreviewAnswerFragment(),quizResultModels.get(position).getID());
     }
 
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
 
     public void onResume() {
         super.onResume();

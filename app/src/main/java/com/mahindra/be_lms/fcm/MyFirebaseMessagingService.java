@@ -9,6 +9,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.ImageView;
@@ -22,6 +23,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import com.google.gson.Gson;
 import com.mahindra.be_lms.MyApplication;
 import com.mahindra.be_lms.R;
+import com.mahindra.be_lms.activities.DashboardActivity;
 import com.mahindra.be_lms.activities.LoginActivity;
 import com.mahindra.be_lms.activities.MainActivity;
 import com.mahindra.be_lms.activities.NotificationDialogActivity;
@@ -137,7 +139,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         DBHelper dbHelper = new DBHelper();
         //String notificationType = SortNotification(remoteMessage, messageBody, title, dbHelper);
         if (MyApplication.mySharedPreference.checkUserLogin()) {
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, DashboardActivity.class);
           //  intent.putExtra(notificationType, true);
         } else {
             intent = new Intent(this, LoginActivity.class);
@@ -322,7 +324,7 @@ extra_link={"141":{"LMS initial registration":"1305160840540R.pdf"}}, message=te
     private int getNotificationIcon() {
         boolean useWhiteIcon = (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP);
         L.l(TAG, "userWhiteIcon: " + useWhiteIcon);
-        return useWhiteIcon ? R.drawable.icn_mastra_72_bw : R.drawable.icn_mastra;
+        return useWhiteIcon ? R.drawable.ic_notification_gray : R.drawable.ic_notification_gray;
     }
 
     private void logoutUser() {

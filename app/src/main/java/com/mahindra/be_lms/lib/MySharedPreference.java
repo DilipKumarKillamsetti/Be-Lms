@@ -33,6 +33,10 @@ public class MySharedPreference {
     public static final String QUERYID = "queryID";
     public static final String SLIDER_SYNC_DATE = "slider_sync_date";
     public static final String USER_TOKEN = "token";
+    public static final String COMMENTS = "commentsCount";
+    public static final String CHECKED_STATUS = "checkedStatus";
+    public static final String CHECKED_COUNT = "checkedCount";
+    public static final String POSITION = "positions";
     private final SharedPreferences preferences;
     private SharedPreferences.Editor editor;
 
@@ -141,7 +145,13 @@ public class MySharedPreference {
         putPref(IS_LOGIN, isLogin);
     }
 
+    public String getComments() {
+        return getPrefisString(COMMENTS);
+    }
 
+    public String getPosition() {
+        return getPrefisString(POSITION);
+    }
 
     public void logOut() {
         removePref(USER_ID);

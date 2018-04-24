@@ -133,4 +133,11 @@ public class CourseFragment extends Fragment implements Callback {
             mainActivity.replaceFrgament(quizFragment);
         }
     }
+
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
 }
+
+

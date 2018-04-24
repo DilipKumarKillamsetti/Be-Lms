@@ -24,7 +24,7 @@ import java.util.List;
  */
 
 public class UploadFile {
-    public static final String UPLOAD_URL = Constants.BE_LMS_PIC_UPLOAD_URL;
+    public static final String UPLOAD_URL = Constants.BE_LMS_PIC_UPLOAD_URL+MyApplication.mySharedPreference.getUserToken();
 
     private int serverResponseCode;
 
@@ -50,7 +50,7 @@ public class UploadFile {
 
         try {
             FileInputStream fileInputStream = new FileInputStream(sourceFile);
-            URL url = new URL(UPLOAD_URL+ MyApplication.mySharedPreference.getUserToken());
+            URL url = new URL(UPLOAD_URL);
             conn = (HttpURLConnection) url.openConnection();
             conn.setDoInput(true);
             conn.setDoOutput(true);

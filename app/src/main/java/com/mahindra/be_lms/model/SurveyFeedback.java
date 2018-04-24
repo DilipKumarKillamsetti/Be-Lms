@@ -10,6 +10,7 @@ public class SurveyFeedback {
     public  String name;
     public  String status;
     public  String intro;
+    public String attemptdate;
 
     public String getId() {
         return id;
@@ -41,5 +42,13 @@ public class SurveyFeedback {
 
     public void setSurveyDescription(String surveyDescription) {
         this.intro = surveyDescription;
+    }
+
+    public String getAttemptdate() {
+        return attemptdate;
+    }
+
+    public void setAttemptdate(String attemptdate) {
+        this.attemptdate = attemptdate;
     }
 }

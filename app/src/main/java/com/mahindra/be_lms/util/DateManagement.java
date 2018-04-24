@@ -56,4 +56,33 @@ public class DateManagement {
         return DAY_OF_MONTH + "-" + MONTH + "-" + YEAR;
     }
 
+    public static int compareDates(String d1,String d2)
+    {
+        int status = 0;
+        try{
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            Date date1 = sdf.parse(d1);
+            Date date2 = sdf.parse(d2);
+
+            if(date1.after(date2)){
+
+                status = 1;
+            }
+
+            if(date1.before(date2)){
+                status = 2;
+            }
+
+            if(date1.equals(date2)){
+                status = 3;
+            }
+
+        }
+        catch(ParseException ex){
+            ex.printStackTrace();
+        }
+        return status;
+    }
+
 }

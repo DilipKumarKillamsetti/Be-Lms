@@ -65,15 +65,16 @@
             android:textStyle="bold"/>
 
 
-    <ImageView
-        android:layout_margin="@dimen/margin_size_8dp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:src="@drawable/details_bg"
-        android:scaleType="fitXY"
-        android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_size_8dp"
+            android:layout_weight=".6"
+            android:scaleType="fitXY"
+            android:src="@drawable/details_bg" />
 
-    <LinearLayout
+        <LinearLayout
         android:layout_margin="@dimen/margin_size_8dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -111,6 +112,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
+                android:id="@+id/btn_details"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_marginTop="@dimen/margin_size_8dp"
@@ -118,18 +120,28 @@
                 style="@style/squre_round_filled_button_yellow"
                 android:text="Details"
                 android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/btn_nominate"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:text="Nominate"
-                android:layout_marginTop="@dimen/margin_size_8dp"
-                android:layout_marginLeft="@dimen/margin_size_8dp"
                 style="@style/squre_round_filled_button_yellow"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_8dp"
+                android:layout_marginTop="@dimen/margin_size_8dp"
+                android:layout_weight="1"
+                android:text="Nominate" />
         </LinearLayout>
-
+        <TextView
+            android:id="@+id/tv_description"
+            android:visibility="gone"
+            android:layout_margin="@dimen/margin_size_3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_size_14sp"
+            android:layout_marginBottom="10dp"/>
     </LinearLayout>
+
     </LinearLayout>
     </ScrollView>
 </LinearLayout>

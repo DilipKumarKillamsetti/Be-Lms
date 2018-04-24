@@ -7,7 +7,7 @@ public interface Request {
     int PICK_EXCEL = 224;
     int PICK_DOC = 225;
     int IMAGE_MAX_SIZE = 20;
-    int VIDEO_MAX_SIZE = 20;
+    int VIDEO_MAX_SIZE = 40;
     int PDF_MAX_SIZE = 20;
     int EXCEL_MAX_SIZE = 20;
     int DOC_MAX_SIZE = 20;

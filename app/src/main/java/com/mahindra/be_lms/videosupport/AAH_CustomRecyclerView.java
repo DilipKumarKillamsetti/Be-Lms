@@ -66,7 +66,6 @@ public class AAH_CustomRecyclerView extends RecyclerView {
             @Override
             public void onScrollStateChanged(final RecyclerView recyclerView, final int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-
                 playAvailableVideos(newState);
             }
 
@@ -86,8 +85,6 @@ public class AAH_CustomRecyclerView extends RecyclerView {
         Looper looper = handlerThread.getLooper();
         Handler handler = new Handler(looper);
         List<Runnable> runnables = new ArrayList<>();
-
-//        List<HandlerThread> threads = new ArrayList<HandlerThread>();
         if (newState == 0) {
             int firstVisiblePosition = ((LinearLayoutManager) getLayoutManager()).findFirstVisibleItemPosition();
             int lastVisiblePosition = ((LinearLayoutManager) getLayoutManager()).findLastVisibleItemPosition();
@@ -217,6 +214,13 @@ public class AAH_CustomRecyclerView extends RecyclerView {
             intent.putExtra("requestId", 101);
             _act.startService(intent);
         }
+    }
+
+    public void stopDownloadInBackground() {
+        Intent intent = new Intent(Intent.ACTION_SYNC, null, _act, AAH_DownloadService.class);
+        /* Send optional extras to Download IntentService */
+            _act.stopService(intent);
+
     }
 
     public void setDownloadVideos(boolean downloadVideos) {

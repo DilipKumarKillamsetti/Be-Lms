@@ -100,26 +100,34 @@
                 android:layout_below="@id/tv_label"
                 android:layout_margin="@dimen/margin_size_8dp"
                 android:visibility="gone" />
-
-            <WebView
-                android:id="@+id/wv_mamualInfo"
+            <com.mahindra.be_lms.util.TouchyWebView
+                android:id="@+id/twv_doc"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
+                android:layout_below="@id/tv_label"
+                android:layout_margin="@dimen/margin_size_8dp"
+                android:visibility="gone">
+
+            </com.mahindra.be_lms.util.TouchyWebView>
+
+    <WebView
+                android:id="@+id/wv_mamualInfo"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
                 android:layout_below="@id/tv_label"
                 tools:ignore="ContentDescription"
                 android:layout_margin="@dimen/margin_size_8dp"
                 android:visibility="gone"></WebView>
 
-
             <LinearLayout
                 android:id="@+id/ll_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/vv_video"
                 android:layout_margin="@dimen/margin_size_8dp"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_test"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_size_3dp"
@@ -131,6 +139,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_size_3dp"

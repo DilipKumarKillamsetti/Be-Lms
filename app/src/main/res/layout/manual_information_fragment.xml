@@ -61,9 +61,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
       android:background="@color/caldroid_lighter_gray"
-        android:layout_above="@+id/footer_view"
-        android:layout_below="@+id/ll_tc"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <include
         android:id="@+id/footer_view"

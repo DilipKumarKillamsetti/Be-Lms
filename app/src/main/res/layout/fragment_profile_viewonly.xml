@@ -115,7 +115,7 @@
                 android:textColor="#212121" />
         </RelativeLayout>
 
-        <include layout="@layout/item_divider" />
+        <!--<include layout="@layout/item_divider" />-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -125,7 +125,8 @@
             android:paddingBottom="@dimen/activity_horizontal_margin"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:paddingTop="@dimen/activity_horizontal_margin">
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ivContactItem5"
@@ -187,13 +188,14 @@
                 android:textColor="#212121" />
         </RelativeLayout>
 
-        <include layout="@layout/item_divider" />
+        <!--<include layout="@layout/item_divider" />-->
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/edittext_bg"
             android:clickable="true"
+            android:visibility="gone"
             android:paddingBottom="@dimen/activity_horizontal_margin"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
@@ -301,6 +303,7 @@
             android:layout_height="wrap_content"
             android:background="@color/edittext_bg"
             android:clickable="true"
+            android:visibility="gone"
             android:paddingBottom="@dimen/activity_horizontal_margin"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"

@@ -12,6 +12,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -24,12 +25,15 @@ import com.mahindra.be_lms.db.User;
 import com.mahindra.be_lms.fragments.HomeFragment;
 import com.mahindra.be_lms.fragments.HomeMenuFragment;
 import com.mahindra.be_lms.fragments.LearningHubFragment;
+import com.mahindra.be_lms.fragments.MenuFragment;
 import com.mahindra.be_lms.fragments.MostViewedFragment;
 import com.mahindra.be_lms.fragments.NewNotification;
 import com.mahindra.be_lms.fragments.NewsAndUpdateFragment;
 import com.mahindra.be_lms.fragments.ProfileViewFragment;
 import com.mahindra.be_lms.fragments.TechnicalDocumentByOtherFragment;
 import com.mahindra.be_lms.lib.L;
+import com.mahindra.be_lms.lib.MySharedPreference;
+import com.mahindra.be_lms.lib.WebViewCachePref;
 import com.mahindra.be_lms.util.CircularImageView;
 import com.mahindra.be_lms.util.DBHelper;
 import com.roughike.bottombar.BottomBar;
@@ -56,28 +60,31 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
     CircularImageView iv_header_imageView;
     @BindView(R.id.tv_userName)
     TextView tv_userName;
+    @BindView(R.id.iv_side_menu)
+    ImageView iv_side_menu;
     private User user;
     @BindView(R.id.menuBar_dashboard)
     BottomBar menuBar_dashboard;
     @BindView(R.id.ntb)
-    NavigationTabBar navigationTabBar;
+    public NavigationTabBar navigationTabBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_dashboard);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         init();
-
     }
 
     public void init(){
 
 
       //  final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb);
+        iv_side_menu.setOnClickListener(this);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
         models.add(
                 new NavigationTabBar.Model.Builder(
@@ -105,15 +112,15 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
                         .badgeTitle("state")
                         .build()
         );
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.icn_security_alfa_50),
-                        Color.parseColor("#00ffffff")
-
-                ).title("Flag")
-                        .badgeTitle("icon")
-                        .build()
-        );
+//        models.add(
+//                new NavigationTabBar.Model.Builder(
+//                        getResources().getDrawable(R.drawable.icn_security_alfa_50),
+//                        Color.parseColor("#00ffffff")
+//
+//                ).title("Flag")
+//                        .badgeTitle("icon")
+//                        .build()
+//        );
 
         navigationTabBar.setModels(models);
         navigationTabBar.setModelIndex(0, true);
@@ -126,13 +133,12 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
                // Toast.makeText(DashboardActivity.this, String.format("onEndTabSelected #%d", index), Toast.LENGTH_SHORT).show();
                 switch (index){
                     case 0:
-                        Log.e("=========","==========");
-                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                       // getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         replaceFrgament(new NewsAndUpdateFragment());
                         break;
                     case 1:
                         //getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                        replaceFrgament(new LearningHubFragment());
+                        replaceFrgament2(new LearningHubFragment());
                         break;
                     case 2:
                         replaceFrgament(new NewNotification());
@@ -152,49 +158,6 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
         });
 
 
-
-//        menuBar_dashboard.setOnTabSelectListener(new OnTabSelectListener() {
-//            @Override
-//            public void onTabSelected(@IdRes int tabId) {
-//                switch (tabId) {
-//                    case R.id.excellence_update:
-//                        //setTitle(getString(R.string.tab_technical_upload_new));
-//                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-//                        replaceFrgament(new NewsAndUpdateFragment());
-//                        break;
-//                    case R.id.tab_view_learning_hub:
-//                        // setTitle(getString(R.string.tab_technical_upload_by_me));
-//                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-//                        replaceFrgament(new LearningHubFragment());
-//                        break;
-//                    case R.id.tab_technical_upload_other:
-//                        //setTitle(getString(R.string.tab_technical_upload_by_other));
-//                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-//                        replaceFrgament(new TechnicalDocumentByOtherFragment());
-//                        break;
-//                }
-//            }
-//        });
-//        menuBar_dashboard.setOnTabReselectListener(new OnTabReselectListener() {
-//            @Override
-//            public void onTabReSelected(@IdRes int tabId) {
-//                switch (tabId) {
-//                    case R.id.excellence_update:
-//                        //setTitle(getString(R.string.tab_technical_upload_new));
-//                        replaceFrgament(new NewsAndUpdateFragment());
-//                        break;
-//                    case R.id.tab_view_learning_hub:
-//                        // setTitle(getString(R.string.tab_technical_upload_by_me));
-//                        replaceFrgament(new LearningHubFragment());
-//                        break;
-//                    case R.id.tab_technical_upload_other:
-//                        //setTitle(getString(R.string.tab_technical_upload_by_other));
-//                        replaceFrgament(new TechnicalDocumentByOtherFragment());
-//                        break;
-//                }
-//            }
-//        });
-        //replaceFrgament(new HomeMenuFragment());
         iv_header_imageView.setOnClickListener(this);
         user = new DBHelper().getUser();
         tv_userName.setText("Hi "+user.getUserFirstName());
@@ -226,7 +189,28 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
 
     }
 
+    public void replaceFrgament2(Fragment fragment) {
+        String fragmentTag = fragment.getClass().getSimpleName();
+        setFragment(fragment);
+        L.l(this, "Fragment SIMPLE NAME : " + fragmentTag);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.contentContainer_home, fragment, fragmentTag)
+                .commit();
+
+    }
+
     public void replaceFrgament1(Fragment fragment) {
+        String fragmentTag = fragment.getClass().getSimpleName();
+        setFragment(fragment);
+        L.l(this, "Fragment SIMPLE NAME : " + fragmentTag);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.contentContainer_home, fragment, fragmentTag)
+                .commit();
+
+    }
+    public void addFrgament(Fragment fragment) {
         String fragmentTag = fragment.getClass().getSimpleName();
         setFragment(fragment);
         L.l(this, "Fragment SIMPLE NAME : " + fragmentTag);
@@ -267,6 +251,34 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
                 startActivity(i);
                 break;
 
+            case R.id.iv_side_menu:
+                if(getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof MenuFragment){
+                    getSupportFragmentManager().popBackStack();
+                }else{
+                    replaceFrgament(new MenuFragment());
+                }
+
+
+//                new AlertDialog.Builder(this)
+//                        .setTitle(getString(R.string.app_name))
+//                        .setMessage(getString(R.string.dialog_logout_msg))
+//                        .setPositiveButton(getString(R.string.dialog_yes), new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.cancel();
+//                                DBHelper dbHelper = new DBHelper();
+//                                dbHelper.clearUserData();
+//                                MyApplication.mySharedPreference.setUserLogin(false);
+//                                MyApplication.mySharedPreference.setNotificationType("");
+//                                WebViewCachePref.newInstance(DashboardActivity.this).clearAllPref();
+//                                startActivity(new Intent(DashboardActivity.this, LoginActivity.class)
+//                                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+//                                finish();
+//                            }
+//                        }).setNegativeButton(getString(R.string.dialog_no), null).show();
+
+                break;
+
             default:
                 break;
 
@@ -275,18 +287,14 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof NewsAndUpdateFragment) {
-
-            //menuBar_dashboard.selectTabAtPosition(0);
-            Log.e("=========","==========++++");
-            getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            navigationTabBar.setModelIndex(0, true);
-
-        }else if(getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof HomeFragment){
-            getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        }
-        else if(getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof ProfileViewFragment){
+      if(getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof ProfileViewFragment){
             navigationTabBar.setVisibility(View.VISIBLE);
             Log.e("=========","==========@@@@@@@@");
 //            if(getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof LearningHubFragment){
@@ -297,16 +305,37 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
           //  replaceFrgament(new NewsAndUpdateFragment());
            // getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }else if(getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof LearningHubFragment){
-            getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            navigationTabBar.setModelIndex(0, true);
-            replaceFrgament(new NewsAndUpdateFragment());
+
+            //navigationTabBar.setModelIndex(0, true);
+          navigationTabBar.setModelIndex(0);
+
+          //  replaceFrgament(new NewsAndUpdateFragment());
         }
         else if(getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof NewNotification){
             getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
             navigationTabBar.setModelIndex(1, true);
             replaceFrgament(new LearningHubFragment());
-        }
-//        else{
+        }else if(getSupportFragmentManager().findFragmentById(R.id.contentContainer_home) instanceof NewsAndUpdateFragment){
+
+          new AlertDialog.Builder(this)
+                  .setTitle(getString(R.string.app_name))
+                  .setMessage(getString(R.string.dialog_exit_msg))
+                  .setPositiveButton(getString(R.string.dialog_yes), new DialogInterface.OnClickListener() {
+                      @Override
+                      public void onClick(DialogInterface dialog, int which) {
+                          dialog.cancel();
+                          getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                               /* Intent intent = new Intent(Intent.ACTION_MAIN);
+                                intent.addCategory(Intent.CATEGORY_HOME);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);/*//***Change Here***
+                           startActivity(intent);*/
+                          finish();
+                          // System.exit(0);
+                      }
+                  }).setNegativeButton(getString(R.string.dialog_no), null).show();
+      }
+       else{
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             getSupportFragmentManager().popBackStack();
 
@@ -328,7 +357,7 @@ public class DashboardActivity  extends BaseActivity implements View.OnClickList
                         }
                     }).setNegativeButton(getString(R.string.dialog_no), null).show();
         }
-        //}
+        }
     }
 
 //    @Override

@@ -2,6 +2,7 @@ package com.mahindra.be_lms.activities;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -54,6 +55,7 @@ import com.mahindra.be_lms.lib.PKBDialog;
 import com.mahindra.be_lms.model.ManualInfoModel;
 import com.mahindra.be_lms.util.CommonFunctions;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 import com.mahindra.be_lms.util.DBHelper;
 import com.mahindra.be_lms.util.ImageHelper;
 import com.mahindra.be_lms.util.QuickTest;
@@ -95,17 +97,18 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
     private boolean isMobileNo = false;
     @BindView(R.id.cb_hide_show_pw)
     CheckBox cb_hide_show_pw;
+    public ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                WindowManager.LayoutParams.FLAG_SECURE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+//                WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        etLoginPassword.setText("Admin@123");
-        etLoginMobile.setText("Testinguser");
+//        etLoginPassword.setText("Mahindra@1234");
+//        etLoginMobile.setText("kumavij-cont");
 
         //requestXML("http://mahindramile.com/WindowAuth/Service.asmx/ValidateCredential?LoginID=kumavij-co&Password=TWFoaW5kcmFAMTIzNA==");
         try {
@@ -166,7 +169,8 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
                 if (validateFields()) {
                     if (L.isNetworkAvailable(this)) {
                         if (Utility.checkReadPhoneStateAndExtStoragePermission(this)) {
-                            L.pd(getString(R.string.dialog_please_wait), this);
+                            //L.pd(getString(R.string.dialog_please_wait), this);
+
                             request(Constants.BE_LMS_Common_URL + "login/token.php?username=" + etLoginMobile.getText().toString() + "&password=" + etLoginPassword.getText().toString() + "&fcmtokenid=" + MyApplication.mySharedPreference.getFcmToken() + "&service=moodle_mobile_app");
                         } else {
                             Utility.callReadPhoneStateAndExtStoragePermission(this);
@@ -306,10 +310,11 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
                     // Check for both permissions
                     if (perms.get(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED && perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                             && perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                        Log.e("Device------", MyApplication.mySharedPreference.getFcmToken());
+//                        Log.e("Device------", MyApplication.mySharedPreference.getFcmToken());
                         if (L.isNetworkAvailable(this)) {
                             if (Utility.checkReadPhoneStateAndExtStoragePermission(this)) {
-                                L.pd(getString(R.string.dialog_please_wait), this);
+//                                L.pd(getString(R.string.dialog_please_wait), this);
+                                progressDialog = new CustomProgressDialog(this,"");
                                 request(Constants.BE_LMS_Common_URL + "login/token.php?username=" + etLoginMobile.getText().toString() + "&password=" + etLoginPassword.getText().toString() + "&fcmtokenid=" + MyApplication.mySharedPreference.getFcmToken() + "&service=moodle_mobile_app");
                             } else {
                                 Utility.callReadPhoneStateAndExtStoragePermission(this);
@@ -421,6 +426,9 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
     */
     @Override
     public void request(String url) {
+        progressDialog  = new CustomProgressDialog(this,
+                "");
+        progressDialog.show();
         JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -431,7 +439,8 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                L.dismiss_pd();
+
+                progressDialog.dismiss();
                 L.l(LoginActivity.this, "ERROR : " + error.getMessage());
 
                 if (L.checkNull(error.getMessage())) {
@@ -457,7 +466,6 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
                 new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                    Log.e("=====",response);
                 L.l(LoginActivity.this, "RESPONSE : " + response.toString());
             }
         }, new Response.ErrorListener() {
@@ -518,7 +526,8 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
                             L.l(LoginActivity.this, "Retry to Login WS Count plus: " + retry_count);
                             request(Constants.LMS_URL);
                         } else {
-                            L.dismiss_pd();
+//                            L.dismiss_pd();
+                            progressDialog.dismiss();
                             new PKBDialog(this, PKBDialog.WARNING_TYPE)
                                     .setContentText(getString(R.string.login_failed_msg))
                                     .setConfirmText("OK")
@@ -532,13 +541,15 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
                                     }).show();
                         }
                     } else {
-                        L.dismiss_pd();
+//                        L.dismiss_pd();
+                        progressDialog.dismiss();
                         new PKBDialog(this, PKBDialog.WARNING_TYPE)
                                 .setContentText(jsonObject.getString("error")).show();
                     }
                 }
             } catch (JSONException e) {
-                L.dismiss_pd();
+//                L.dismiss_pd();
+                progressDialog.dismiss();
                 e.printStackTrace();
                 new PKBDialog(this, PKBDialog.WARNING_TYPE)
                         .setContentText(getString(R.string.somthing_went_wrong)).show();
@@ -681,8 +692,8 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
                                 L.l(LoginActivity.this, "PROFILE IMAGE URL: " + url);
                                 getImageBitmap("http://13.76.164.143/businessexcellence/webservice/pluginfile.php/92/user/icon/basis/f1?rev=951&token=eaaeaab35c2f7a7d7e1734340b1c376f774d14a5", "");
                             }
-                            L.dismiss_pd();
-                            MyApplication.mySharedPreference.setUserLogin(true);
+//                            L.dismiss_pd();
+                            progressDialog.dismiss();
                             MyApplication.mySharedPreference.putPref(MySharedPreference.SAFETY_ACCEPT, true);
                             new PKBDialog(LoginActivity.this, PKBDialog.CUSTOM_IMAGE_TYPE)
                                     .setCustomImage(R.drawable.success_circle)
@@ -716,7 +727,8 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            L.dismiss_pd();
+//                            L.dismiss_pd();
+                            progressDialog.dismiss();
                         }
 
 //                    MyApplication.mySharedPreference.setUserLogin(true);
@@ -739,7 +751,8 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    L.dismiss_pd();
+//                    L.dismiss_pd();
+                    progressDialog.dismiss();
                 }
                 L.l(LoginActivity.this, "RESPONSE : " + response.toString());
 
@@ -748,7 +761,8 @@ public class LoginActivity extends BaseActivity implements NetworkMethod {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                L.dismiss_pd();
+//                L.dismiss_pd();
+                progressDialog.dismiss();
                 L.l(LoginActivity.this, "ERROR : " + error.getMessage());
                 if (L.checkNull(error.getMessage())) {
                     new PKBDialog(LoginActivity.this, PKBDialog.WARNING_TYPE)

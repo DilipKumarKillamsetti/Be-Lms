@@ -108,7 +108,7 @@ public class NotificationDialogActivity extends Activity {
                             if (notificationType.equalsIgnoreCase("General")) {
                                 L.l(NotificationDialogActivity.this, "notification");
                                 if (MyApplication.mySharedPreference.getNotificationType().equals("3")) {
-                                    startActivity(new Intent(NotificationDialogActivity.this, MainActivity.class).putExtra(notificationType, true).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                                    startActivity(new Intent(NotificationDialogActivity.this, DashboardActivity.class).putExtra(notificationType, true).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                     NotificationDialogActivity.this.finish();
                                 } else {
                                     startActivity(new Intent(NotificationDialogActivity.this, NotificationActivity.class));
@@ -117,7 +117,7 @@ public class NotificationDialogActivity extends Activity {
                                 // replaceFrgament(new MyQueriesFragment());
                             } else {
                                 if(MyApplication.mySharedPreference.checkUserLogin()){
-                                    startActivity(new Intent(NotificationDialogActivity.this, MainActivity.class).putExtra(notificationType, true).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                                    startActivity(new Intent(NotificationDialogActivity.this, DashboardActivity.class).putExtra(notificationType, true).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                     NotificationDialogActivity.this.finish();
                                 }else{
                                     NotificationDialogActivity.this.finish();

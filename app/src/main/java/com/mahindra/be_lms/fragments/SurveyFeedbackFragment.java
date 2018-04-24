@@ -2,6 +2,7 @@ package com.mahindra.be_lms.fragments;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -47,6 +48,7 @@ import com.mahindra.be_lms.lib.PKBDialog;
 import com.mahindra.be_lms.model.QuizDataModel;
 import com.mahindra.be_lms.model.SurveyFeedback;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 import com.mahindra.be_lms.volley.VolleySingleton;
 
 import org.json.JSONArray;
@@ -77,6 +79,7 @@ public class SurveyFeedbackFragment extends Fragment implements Callback, Networ
     private SurveyFeedbackAdapter courseListAdapter;
     private DashboardActivity mainActivity;
     private ArrayList<SurveyFeedback> getSurveyFeedback;
+    private ProgressDialog progressDialog;
 
     public SurveyFeedbackFragment() {
         // Required empty public constructor
@@ -124,7 +127,8 @@ public class SurveyFeedbackFragment extends Fragment implements Callback, Networ
                 retryButtonLayout.setVisibility(View.GONE);
                 rvSurveyFeedbackFragmentList.setVisibility(View.VISIBLE);
             }
-            L.pd(getString(R.string.dialog_please_wait), getActivity());
+           progressDialog = new CustomProgressDialog(getActivity(),"");
+            progressDialog.show();
             request(Constants.BE_LMS_ROOT_URL + MyApplication.mySharedPreference.getUserToken() + "&wsfunction=mod_feedback_get_feedbacks_by_courses&courseids[0]=1&moodlewsrestformat=json");
 
         } else {
@@ -153,7 +157,8 @@ public class SurveyFeedbackFragment extends Fragment implements Callback, Networ
     public void myCallback(int position, String tag) {
         if (L.isNetworkAvailable(getActivity())) {
 
-            L.pd(getString(R.string.dialog_please_wait), getActivity());
+            progressDialog = new CustomProgressDialog(getActivity(),"");
+            progressDialog.show();
             requestFeedbackStatus(Constants.BE_LMS_ROOT_URL + MyApplication.mySharedPreference.getUserToken() + "&wsfunction=mod_feedback_completed&feedbackid=" + getSurveyFeedback.get(position).getId() + "&userid=" + MyApplication.mySharedPreference.getUserId() + "&moodlewsrestformat=json", getSurveyFeedback.get(position).getId());
 
         } else {
@@ -164,11 +169,17 @@ public class SurveyFeedbackFragment extends Fragment implements Callback, Networ
         }
     }
 
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
+
     private void requestFeedbackStatus(String s, final String id) {
         JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, s, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 try {
                     if (response.getString("Status").equalsIgnoreCase("Success")) {
                         if (response.getString("completed").equalsIgnoreCase("Completed")) {
@@ -187,6 +198,7 @@ public class SurveyFeedbackFragment extends Fragment implements Callback, Networ
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    progressDialog.dismiss();
                 }
 
 
@@ -194,7 +206,7 @@ public class SurveyFeedbackFragment extends Fragment implements Callback, Networ
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 L.l(getActivity(), "ERROR : " + error.getMessage());
                 if (L.checkNull(error.getMessage())) {
                     new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
@@ -234,14 +246,14 @@ public class SurveyFeedbackFragment extends Fragment implements Callback, Networ
         JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 Log.e("Course API Response===", response.toString());
                 updateDisplay(response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 L.l(getActivity(), "ERROR : " + error.getMessage());
                 if (L.checkNull(error.getMessage())) {
                     new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)

@@ -59,6 +59,7 @@
         android:background="@color/yellow"
         android:src="@drawable/icon_profile_pic_edit"
         app:fabSize="normal"
+        app:backgroundTint="@color/yellow"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="right|bottom|end" />
 

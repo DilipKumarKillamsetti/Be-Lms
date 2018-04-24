@@ -16,6 +16,7 @@ repositories {
 
 apply plugin: 'android-apt'
 android {
+    useLibrary 'org.apache.http.legacy'
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -25,6 +26,9 @@ android {
         versionCode 2
         versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    dexOptions {
+        jumboMode = true
     }
     buildTypes {
         release {
@@ -42,6 +46,14 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/ASL2.0'
     }
 }
 
@@ -73,11 +85,17 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
-    compile 'com.github.varunest:sparkbutton:1.0.5'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    compile('org.apache.httpcomponents:httpmime:4.3.6') {
+        exclude module: 'httpclient'
+    }
+    compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
-
     compile project(':library')
+    compile files('libs/aspectjrt-1.7.3.jar')
+    compile files('libs/isoparser-1.0.6.jar')
 }
 //apply plugin: 'com.google.gms.google-services'
 

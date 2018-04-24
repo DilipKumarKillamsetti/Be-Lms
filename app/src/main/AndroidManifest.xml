@@ -182,6 +182,9 @@
             android:name="com.mahindra.be_lms.activities.ViewDocument"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.mahindra.be_lms.activities.ViewImageVideo"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.mahindra.be_lms.activities.FAQActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -204,7 +207,11 @@
         <activity
             android:name="com.mahindra.be_lms.activities.CommentsActivityDialog"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"></activity>
+            android:theme="@style/myTheme_NoActionBar"></activity>
+        <activity
+            android:name="com.mahindra.be_lms.activities.LikesListActivityDialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/myTheme_NoActionBar"></activity>
         <activity
             android:name="com.mahindra.be_lms.activities.ReplyQueryActivity"
             android:screenOrientation="portrait" />

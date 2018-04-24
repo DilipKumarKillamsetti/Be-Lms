@@ -1,9 +1,11 @@
 package com.mahindra.be_lms.fragments;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,8 @@ import com.mahindra.be_lms.interfaces.NetworkMethod;
 import com.mahindra.be_lms.lib.L;
 import com.mahindra.be_lms.lib.PKBDialog;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
+import com.mahindra.be_lms.util.DateManagement;
 import com.mahindra.be_lms.volley.VolleySingleton;
 
 import org.json.JSONArray;
@@ -55,8 +59,12 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     TextView tv_to;
     @BindView(R.id.btn_nominate)
     Button btn_nominate;
+    @BindView(R.id.tv_description)
+    TextView tv_description;
+    @BindView(R.id.btn_details)
+    Button btn_details;
     private Event event;
-
+    private ProgressDialog progressDialog;
     public EventDetailsFragment(){
 
     }
@@ -73,6 +81,8 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     }
 
     public void init(){
+
+        btn_details.setOnClickListener(this);
         Bundle bundle = getArguments();
         if (bundle != null) {
             event = bundle.getParcelable(getString(R.string.event_parcelable_tag));
@@ -82,8 +92,14 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
         String eventDate = DateFormat.format("dd MMM yyyy", cal).toString();
         tv_event_title.setText(event.getEventName());
         tv_event_date.setText(eventDate);
-
+        int status = DateManagement.compareDates(DateFormat.format("dd-MM-yyyy", cal).toString(),DateManagement.getCurrentDate());
+        if(status == 2){
+            btn_nominate.setVisibility(View.INVISIBLE);
+        }else{
+            btn_nominate.setOnClickListener(this);
+        }
         String fromDate = DateFormat.format("dd-MM-yyyy hh:mm:ss", cal).toString();
+
         tv_from.setText("From : " + fromDate);
 
         if(null == event.getEventTodate()){
@@ -114,13 +130,24 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
 
                 if (L.isNetworkAvailable(getActivity())) {
 
-                    L.pd(getString(R.string.dialog_please_wait), getActivity());
+                    progressDialog = new CustomProgressDialog(getActivity(),"");
+                    progressDialog.show();
                     request(Constants.BE_LMS_ROOT_URL+ MyApplication.mySharedPreference.getUserToken()+"&wsfunction=core_nominate_me&eventid="+event.getEventID()+"&moodlewsrestformat=json");
 
                 } else {
                     new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
                             .setContentText(getString(R.string.err_network_connection)).show();
 
+                }
+
+                break;
+
+            case R.id.btn_details:
+                tv_description.setVisibility(View.VISIBLE);
+                if(event.getEventMonth().isEmpty()){
+                    tv_description.setText("No Description Available");
+                }else{
+                    tv_description.setText(Html.fromHtml(event.getEventMonth()));
                 }
 
                 break;
@@ -141,7 +168,7 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
                     if(jsonObject.getString("Status").equalsIgnoreCase("Success")){
                         new PKBDialog(getActivity(), PKBDialog.CUSTOM_IMAGE_TYPE)
                                 .setCustomImage(R.drawable.success_circle)
-                                .setContentText("Event nomination done successfully.")
+                                .setContentText(jsonObject.getString("Message"))
                                 .setConfirmClickListener(new PKBDialog.OnPKBDialogClickListner() {
                                     @Override
                                     public void onClick(PKBDialog customDialog) {
@@ -162,8 +189,9 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
 
             } catch (JSONException e) {
                 e.printStackTrace();
+                progressDialog.dismiss();
             }
-            L.dismiss_pd();
+            progressDialog.dismiss();
 
 //            String responseData = "{\"statusCode\":\"200\",\"result\":\"Success\",\"message\":\"Success\",\"data\":{\"id\":\"121\",\"username\":\"U000121\",\"firstname\":\"Vijay\",\"lastname\":\"Kumavat\",\"emailid\":\"v11.kumavat@yahoo.in\",\"mobileno\":\"+918149143550\",\"organization_code\":\"\",\"organization\":\"Krios\",\"picture\":\"\",\"location\":\"296\",\"designation\":\"4\",\"qualification\":\"25\",\"role\":\"Customer\",\"dob\":\"11-03-1999\",\"doj\":\"11-09-2017\",\"profiles\":\"Customer,Tester,Samriddhi\",\"groups\":\"MASL,Customer,Tester\",\"menurights\":{\"registration\":\"N\",\"search\":\"N\",\"powerolCare\":\"N\",\"mostViewed\":\"N\",\"myProfile\":\"N\",\"surveyFeedbacks\":\"N\",\"myTrainingPassport\":\"N\",\"learningTestQuizs\":\"N\",\"manualsBulletins\":\"Y\",\"trainingCalenderNomination\":\"N\",\"queriesResponse\":\"N\",\"technicalUploads\":\"N\",\"myFieldRecords\":\"N\",\"reports\":\"N\",\"manpowerEdition\":\"N\"}}}";
 //            updateDisplay(responseData);
@@ -171,7 +199,7 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            L.dismiss_pd();
+            progressDialog.dismiss();
             L.l(getActivity(), "ERROR : " + error.getMessage());
             if (L.checkNull(error.getMessage())) {
                 new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)

@@ -104,7 +104,7 @@ public class CollapsibleCalendarView extends LinearLayout implements View.OnClic
             }
         }
 
-        mManager = new CalendarManager(LocalDate.now(), startingState, LocalDate.now(), LocalDate.now().plusYears(1));
+        mManager = new CalendarManager(LocalDate.now(), startingState, LocalDate.now().minusYears(3), LocalDate.now().plusYears(1));
         mInflater = LayoutInflater.from(context);
         mResizeManager = new ResizeManager(this);
         inflate(context, R.layout.calendar_layout, this);

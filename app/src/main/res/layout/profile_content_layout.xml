@@ -55,7 +55,23 @@
                     android:imeOptions="actionNext"
                     android:inputType="text" />
             </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="@dimen/profile_lebal_top_margin"
+                android:text="Mobile No" />
+            <EditText
+                android:id="@+id/etRegisterMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/register_edittext_style"
+                android:digits="0123456789"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:textAppearance="@android:style/TextAppearance.Medium" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,8 +84,21 @@
                 style="@style/register_edittext_style"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="@dimen/profile_lebal_top_margin"
+                android:text="Function" />
+
+            <EditText
+                android:id="@+id/etProfileFunction"
+                style="@style/register_edittext_style"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -82,6 +111,7 @@
                 android:inputType="text|textCapWords|textNoSuggestions"
                 android:visibility="gone"/>
             <Spinner
+                android:visibility="gone"
                 android:id="@+id/companySpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,6 +146,7 @@
             </LinearLayout>
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -123,6 +154,7 @@
                 android:text="@string/profile_label_designation" />
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/rlProfileDesignation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -18,7 +18,7 @@
             android:id="@+id/iv_user_pic"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_gravity="center|bottom"
+            android:layout_gravity="center"
             android:fitsSystemWindows="true"
             android:scaleType="centerCrop"
             android:src="@drawable/user_new"
@@ -29,7 +29,7 @@
             app:shadow="true" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/tv_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

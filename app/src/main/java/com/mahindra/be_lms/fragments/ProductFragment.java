@@ -232,6 +232,11 @@ public class ProductFragment extends Fragment implements Callback, NetworkMethod
     }
 
     @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
+    @Override
     public void request(String url) {
         Log.d(TAG, "request: Method Call");
         L.pd("Please Wait", getActivity());

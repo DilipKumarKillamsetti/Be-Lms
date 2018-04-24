@@ -80,13 +80,14 @@
                     android:background="@drawable/edittext_white_bg">
                     <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"
+                        android:layout_height="110dp"
                         android:scrollbars="vertical"
                         >
                     <TextView
+                        android:id="@+id/tv_disclaimer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/stringtxt_dislaimer"
+                        android:text=""
                         android:textSize="@dimen/text_size_18sp"
                         />
                     </ScrollView>

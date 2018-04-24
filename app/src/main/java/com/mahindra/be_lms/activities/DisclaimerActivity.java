@@ -25,6 +25,8 @@ public class DisclaimerActivity extends BaseActivity implements View.OnClickList
     private boolean fromMainActivity;
     @BindView(R.id.btnAccept)
     Button btnAccept;
+    @BindView(R.id.tv_disclaimer)
+    TextView tv_disclaimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class DisclaimerActivity extends BaseActivity implements View.OnClickList
 
     public void initComp() {
         btnAccept.setOnClickListener(this);
+        tv_disclaimer.setText(Html.fromHtml(getString(R.string.stringtxt_dislaimer)));
       //  ch1 = (CheckBox) findViewById(R.id.cb_disclaimer);
         //btn_next = (Button) findViewById(R.id.btnDisclaimerNext);
      //  btn_next.setOnClickListener(this);
@@ -67,10 +70,10 @@ public class DisclaimerActivity extends BaseActivity implements View.OnClickList
 
         switch (v.getId()){
             case R.id.btnAccept:
-
+                MyApplication.mySharedPreference.setUserLogin(true);
                 Intent i = new Intent(DisclaimerActivity.this,DashboardActivity.class);
                 startActivity(i);
-
+                finish();
                 break;
             default:
                 break;

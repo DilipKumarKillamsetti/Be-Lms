@@ -2,6 +2,7 @@ package com.mahindra.be_lms.fragments;
 
 import android.app.Activity;
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.google.gson.Gson;
 import com.mahindra.be_lms.MyApplication;
 import com.mahindra.be_lms.R;
 import com.mahindra.be_lms.activities.DashboardActivity;
@@ -48,6 +50,7 @@ import com.mahindra.be_lms.model.CourseModel;
 import com.mahindra.be_lms.model.ManualInfoModel;
 import com.mahindra.be_lms.util.CommonFunctions;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 import com.mahindra.be_lms.util.Utility;
 import com.mahindra.be_lms.volley.VolleySingleton;
 
@@ -82,7 +85,7 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
     private ArrayList<ManualInfoModel> manualInfoModels;
     private String download_url;
     private DownloadManager downloadManager;
-
+    private ProgressDialog progressDialog;
     public ManualInfoFragment() {
     }
 
@@ -99,6 +102,7 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
 
     private void init() {
        // mainActivity.setDrawerEnabled(false);
+
         downloadManager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
         callApi();
         manualInfoModels = new ArrayList<>();
@@ -112,15 +116,19 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
     }
 
     private void callApi() {
-
+        String courseId = "";
+        if(getArguments()!= null){
+            courseId = getArguments().getString("id");
+        }
         if (L.isNetworkAvailable(getActivity())) {
             if (retryButtonLayout.getVisibility() == View.VISIBLE) {
                 retryButtonLayout.setVisibility(View.GONE);
                 rvManualInfoList.setVisibility(View.VISIBLE);
             }
 
-            L.pd(getString(R.string.dialog_please_wait), getActivity());
-            request(Constants.BE_LMS_ROOT_URL + MyApplication.mySharedPreference.getUserToken() + "&wsfunction=core_course_get_contents&courseid=1&moodlewsrestformat=json");
+            progressDialog = new CustomProgressDialog(getActivity(),"");
+            progressDialog.show();
+            request(Constants.BE_LMS_ROOT_URL + MyApplication.mySharedPreference.getUserToken() + "&wsfunction=core_course_get_content&courseid="+courseId+"&moodlewsrestformat=json");
 
         } else {
             retryButtonLayout.setVisibility(View.VISIBLE);
@@ -131,10 +139,6 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
                     callApi();
                 }
             });
-//            new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
-//                    .setContentText(getString(R.string.err_network_connection))
-//                    .setConfirmText("OK")
-//                    .show();
         }
     }
 
@@ -171,19 +175,9 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
                     if (jsonObject.getString("Status").equalsIgnoreCase("Success")) {
 
                         JSONArray jsonArray = jsonObject.getJSONArray("coursescontents");
-                        JSONObject jsonObject1 = (JSONObject) jsonArray.get(1);
-                        JSONArray modulesArray = jsonObject1.getJSONArray("modules");
-                        for (int i = 0; i < modulesArray.length(); i++) {
-                            JSONObject modulesObject = (JSONObject) modulesArray.get(i);
-                            ManualInfoModel manualInfoModel = new ManualInfoModel();
-                            manualInfoModel.setId(modulesObject.getString("id"));
-                            manualInfoModel.setManualName(modulesObject.getString("name"));
-                            if (modulesObject.has("contents")) {
-                                JSONArray contentsArray = modulesObject.getJSONArray("contents");
-                                JSONObject contentsObject = (JSONObject) contentsArray.get(0);
-                                manualInfoModel.setFileType(contentsObject.getString("filename"));
-                                manualInfoModel.setFilePath(contentsObject.getString("fileurl"));
-                            }
+
+                        for(int i = 0 ; i<jsonArray.length();i++){
+                            ManualInfoModel manualInfoModel = new Gson().fromJson(String.valueOf(jsonArray.get(i)), ManualInfoModel.class);
                             manualInfoModels.add(manualInfoModel);
                         }
                         if (manualInfoModels.size() > 0) {
@@ -198,14 +192,15 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    progressDialog.dismiss();
                 }
-                L.dismiss_pd();
+                progressDialog.dismiss();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 L.l(getActivity(), "ERROR : " + error.getMessage());
                 if (L.checkNull(error.getMessage())) {
                     new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
@@ -220,6 +215,7 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
 
     @Override
     public void myCallback(final int position) {
+        String cName = getArguments().getString("cName");
         L.l(TAG, "callback call");
         download_url = manualInfoModels.get(position).getFilePath() + "&token=" + MyApplication.mySharedPreference.getUserToken();
         String extension = CommonFunctions.getExtension(manualInfoModels.get(position).getFileType());
@@ -241,11 +237,8 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
                         .setConfirmText("OK")
                         .show();
             }
-//            startActivity(new Intent(getActivity(), ProfilePictureActivity.class)
-//                    .putExtra("image_url", manualInfoModels.get(position).getFilePath() + "&token=" + MyApplication.mySharedPreference.getUserToken())
-//                    .putExtra("title", manualInfoModels.get(position).getManualName())
-//                    .putExtra("notProfilePhoto", true));
-            replaceFrgament(new ViewDocumentFragmnet(),manualInfoModels.get(position).getFilePath() + "&token=" + MyApplication.mySharedPreference.getUserToken(),"image");
+
+            replaceFrgament(new ViewDocumentFragmnet(),manualInfoModels.get(position).getFilePath() + "&token=" + MyApplication.mySharedPreference.getUserToken(),"image",cName,manualInfoModels.get(position).getManualName());
 
         } else if (extension.equalsIgnoreCase("mp4")
                 || extension.equalsIgnoreCase("mpeg")
@@ -263,12 +256,10 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
                             .setConfirmText("OK")
                             .show();
                 }
-//                Intent videoview_intent = new Intent(getActivity(), VideoViewActivity.class);
-//                videoview_intent.putExtra(getString(R.string.testpaper_url_parcelable_tag), download_url);
-//                startActivity(videoview_intent);
-               replaceFrgament(new ViewDocumentFragmnet(),download_url,"video");
+
+               replaceFrgament(new ViewDocumentFragmnet(),download_url,"video",cName,manualInfoModels.get(position).getManualName());
             } else {
-                //L.t(getString(R.string.err_network_connection));
+
                 new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
                         .setContentText(getString(R.string.err_network_connection))
                         .setConfirmText("OK")
@@ -293,7 +284,7 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
                 }
 //                HtmlViewFragment htmlViewFragment = HtmlViewFragment.newInstance(download_url);
 //                mainActivity.replaceFrgament(htmlViewFragment);
-                replaceFrgament(new ViewDocumentFragmnet(),download_url,"doc");
+                replaceFrgament(new ViewDocumentFragmnet(),download_url,"doc",cName,manualInfoModels.get(position).getManualName());
             } else {
                 //L.t(getString(R.string.err_network_connection));
                 new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
@@ -377,7 +368,7 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
 //                startActivity(new Intent(getActivity(), ViewDocument.class)
 //                        .putExtra("doc_url", manualInfoModels.get(position).getFilePath() + "&token=" + MyApplication.mySharedPreference.getUserToken())
 //                        .putExtra("doc_name", manualInfoModels.get(position).getManualName()));
-            replaceFrgament(new ViewDocumentFragmnet(),manualInfoModels.get(position).getFilePath() + "&token=" + MyApplication.mySharedPreference.getUserToken(),"doc");
+            replaceFrgament(new ViewDocumentFragmnet(),manualInfoModels.get(position).getFilePath() + "&token=" + MyApplication.mySharedPreference.getUserToken(),"doc",cName,manualInfoModels.get(position).getManualName());
 
             }
         }
@@ -411,13 +402,15 @@ public class ManualInfoFragment extends Fragment implements MyCallback, NetworkM
         VolleySingleton.getsInstance().addToRequestQueue(stringRequest);
     }
 
-    public void replaceFrgament(Fragment fragment,String url,String type) {
+    public void replaceFrgament(Fragment fragment,String url,String type,String courseName,String fileName) {
         L.l("Fragment SIMPLE NAME : " + fragment.getClass().getSimpleName());
 //        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 //        transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left)
         Bundle args = new Bundle();
         args.putString("url",url);
         args.putString("type",type);
+        args.putString("courseName",courseName);
+        args.putString("fileName",fileName);
         fragment.setArguments(args);
         getFragmentManager().beginTransaction()
                 .replace(R.id.contentContainer_home, fragment, fragment.getClass().getSimpleName())

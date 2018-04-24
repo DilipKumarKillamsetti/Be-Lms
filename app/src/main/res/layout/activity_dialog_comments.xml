@@ -2,19 +2,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
    >
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_top_margin_8dp"
+        android:layout_marginRight="@dimen/layout_top_margin_8dp"
+        android:layout_marginLeft="@dimen/layout_top_margin_8dp"
+        android:layout_marginBottom="@dimen/layout_top_margin_8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="1dp" >
+
 
     <RelativeLayout
         android:id="@+id/ll_rv"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textSize="@dimen/text_16sp"
+            android:padding="@dimen/padding_size_5dp"
+            android:textColor="@color/Black"
+            android:drawableLeft="@drawable/icn_like_fill"/>
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_marginTop="@dimen/margin_size_8dp"
+            android:layout_marginRight="@dimen/margin_size_8dp"
+            android:src="@drawable/icn_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_noComments"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@drawable/no_comments"-->
+            <!--android:visibility="gone"/>-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvcommentResponse"
         android:layout_width="match_parent"
+        android:visibility="visible"
         android:layout_height="match_parent"
-        android:layout_marginTop="4dp" />
+        android:layout_below="@+id/iv_close"
+        android:layout_toRightOf="@+id/progressBarComments"
+        android:layout_toEndOf="@+id/progressBarComments" />
+        <ProgressBar
+            android:id="@+id/progressBarComments"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/textLayout"
@@ -30,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:background="@drawable/edittext_background"
-            android:hint="@string/message_hint_text"
+            android:hint="@string/comments_hint_text"
             android:maxLines="1"
             android:textSize="@dimen/text_size_16sp" />
 
@@ -39,9 +85,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
+            android:padding="5dp"
             android:src="@drawable/ic_send_white_24dp"
             />
     </LinearLayout>
     </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>

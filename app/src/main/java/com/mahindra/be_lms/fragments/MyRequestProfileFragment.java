@@ -224,5 +224,11 @@ public class MyRequestProfileFragment extends Fragment implements Callback {
                     }
                 }).setNegativeButton(getString(R.string.dialog_no), null).show();
     }
+
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
 }
 

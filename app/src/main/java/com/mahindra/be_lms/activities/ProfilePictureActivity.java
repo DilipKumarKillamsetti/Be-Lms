@@ -337,10 +337,9 @@ import butterknife.internal.Utils;
                 try {
                     if (!TextUtils.isEmpty(response)) {
                         JSONObject jsonObject = new JSONObject(response);
+                        Log.e("============",jsonObject.toString());
                         if (jsonObject.getString("result").equalsIgnoreCase("success")) {
-                            Log.e("======",response);
                             ivprofilepicture.setImageBitmap(bitmapImg);
-                            //L.t("Image updated successfully");
                             new PKBDialog(ProfilePictureActivity.this, PKBDialog.CUSTOM_IMAGE_TYPE)
                                     .setContentText(getString(R.string.profile_image_updated_msg))
                                     .setCustomImage(R.drawable.success_circle)
@@ -348,7 +347,6 @@ import butterknife.internal.Utils;
                                         @Override
                                         public void onClick(PKBDialog customDialog) {
                                             customDialog.dismiss();
-                                            //ChangeMobileNumberActivity.this.finish();
                                             ProfilePictureActivity.this.finish();
                                         }
                                     }).show();
@@ -358,7 +356,6 @@ import butterknife.internal.Utils;
                             MyApplication.flagProfilePicSet = fileSave;
                             L.l(TAG, "PROFIEL PIC FLAG UPDATE: " + MyApplication.flagProfilePicSet);
                         } else {
-                            //L.t(jsonObject.getString("message"));
                             new PKBDialog(ProfilePictureActivity.this, PKBDialog.WARNING_TYPE)
                                     .setContentText(jsonObject.getString("message"))
                                     .setConfirmText("OK")
@@ -404,7 +401,7 @@ import butterknife.internal.Utils;
     private void onCaptureImageResult(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         callUpdateProfile(thumbnail);
-        // ivprofilepicture.setImageBitmap(thumbnail);
+
     }
 
     @Override
@@ -431,10 +428,9 @@ import butterknife.internal.Utils;
 
         public String compressImage(String imageUri) {
             String filePath = imageUri;
-            Log.e("()__)(+)(",filePath);
+
             File file = new File(filePath);
             long lenbmpact = file.length() / 1024;
-            Log.d("length--->", "" + lenbmpact);
 
             Bitmap scaledBitmap = null;
 
@@ -650,9 +646,12 @@ import butterknife.internal.Utils;
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, url, new Response.Listener<NetworkResponse>() {
             @Override
             public void onResponse(NetworkResponse response) {
+
                 String resultResponse = new String(response.data);
+                Log.e("=============",resultResponse);
                 try {
                     JSONArray jsonArray =  new JSONArray(resultResponse);
+
                     if(jsonArray.length()>0){
                         JSONObject result = (JSONObject) jsonArray.get(0);
                         String status = result.getString("Status");

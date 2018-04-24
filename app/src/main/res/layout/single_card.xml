@@ -40,6 +40,7 @@
                     app:border_width="4dp" />
 
                 <TextView
+                    android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -87,6 +88,7 @@
                     tools:text="Posted By: Vijay Kumavat" />
             </LinearLayout>
             <FrameLayout
+                android:id="@+id/fl_click"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/videoHeight">
 
@@ -128,16 +130,19 @@
                 android:layout_margin="@dimen/margin_size_3dp">
 
                 <TextView
+                    android:id="@+id/tv_likesCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5k Likes"
                     android:layout_margin="@dimen/margin_size_3dp"/>
 
                 <TextView
+                    android:id="@+id/tv_commentsCount"
                     android:layout_margin="@dimen/margin_size_3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="70 Comments"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -164,16 +169,24 @@
                     <!--android:textSize="@dimen/text_size_16sp"-->
                     <!--android:layout_margin="@dimen/margin_size_3dp"/>-->
                 <CheckBox
+                    android:id="@+id/cb_like"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginEnd="22dp"
-                    android:layout_marginRight="22dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginRight="5dp"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size_16sp"
                     android:text="Like"
+                    android:onClick="onRadioButtonClicked"
                     android:button="@drawable/like_checkbox" />
+                <LinearLayout
+                    android:id="@+id/ll_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -185,6 +198,25 @@
                     android:textSize="@dimen/text_size_16sp"
                     android:textColor="@color/gray"
                     android:text="Comment"/>
+                    </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_delete"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icn_remove"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_margin="@dimen/margin_size_3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_16sp"
+                        android:textColor="@color/gray"
+                        android:text="Delete Post"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 

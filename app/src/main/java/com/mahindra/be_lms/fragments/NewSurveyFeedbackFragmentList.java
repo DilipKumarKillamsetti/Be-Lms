@@ -1,5 +1,6 @@
 package com.mahindra.be_lms.fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -42,6 +43,7 @@ public class NewSurveyFeedbackFragmentList  extends Fragment{
     private MainActivity mainActivity;
     private String html_url;
     private boolean isresultSubmit = false;
+    private ProgressDialog progressDialog;
     public NewSurveyFeedbackFragmentList(){
 
     }

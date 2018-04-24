@@ -567,6 +567,12 @@ public class QueryResponseActivity extends BaseActivity implements Callback, Vie
     public void myCallback(int position, String tag) {
     }
 
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
+
     private void displayWebview(String html_url) {
         wvHtmlViewFragment.loadUrl(html_url);
         //wvHtmlViewFragment.setWebViewClient(new WebViewClient());

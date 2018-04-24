@@ -11,7 +11,7 @@ public class AAH_VideosAdapter extends RecyclerView.Adapter<AAH_CustomViewHolder
 
     @Override
     public AAH_CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AAH_CustomViewHolder(new View(parent.getContext()));
+        return new AAH_CustomViewHolder(new View(parent.getContext()), parent.getContext());
     }
 
     @Override

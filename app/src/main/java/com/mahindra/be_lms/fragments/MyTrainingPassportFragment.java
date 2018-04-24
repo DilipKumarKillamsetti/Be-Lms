@@ -2,6 +2,7 @@ package com.mahindra.be_lms.fragments;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -38,6 +39,7 @@ import com.mahindra.be_lms.lib.PKBDialog;
 import com.mahindra.be_lms.model.MyTrainningPassportModel;
 import com.mahindra.be_lms.model.QuizResult;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 import com.mahindra.be_lms.volley.VolleySingleton;
 
 import org.json.JSONArray;
@@ -79,6 +81,7 @@ public class MyTrainingPassportFragment extends Fragment implements Callback, Ne
     private MyTrainingPassportAdapter adapter;
     private AlertDialog builder;
     private ArrayList<MyTrainningPassportModel> myTrainningPassportModels;
+    private ProgressDialog progressDialog;
     public MyTrainingPassportFragment() {
         // Required empty public constructor
     }
@@ -181,14 +184,13 @@ public class MyTrainingPassportFragment extends Fragment implements Callback, Ne
 
     @Override
     public void request(String url) {
-        L.pd(getString(R.string.dialog_please_wait), getActivity());
+       progressDialog = new CustomProgressDialog(getActivity(),"");
+        progressDialog.show();
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        L.dismiss_pd();
-                        L.l(TAG, "RESPONSE : " + response.toString());
-                        Log.e("============",response.toString());
+                        progressDialog.dismiss();
                         try {
                             updateDisplay(response);
                         } catch (JSONException e) {
@@ -198,7 +200,7 @@ public class MyTrainingPassportFragment extends Fragment implements Callback, Ne
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 L.l(TAG, "ERROR : " + error.getMessage());
                 if (L.checkNull(error.getMessage())) {
                     new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
@@ -269,4 +271,10 @@ public class MyTrainingPassportFragment extends Fragment implements Callback, Ne
 
         }
     }
+
+    @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
 }

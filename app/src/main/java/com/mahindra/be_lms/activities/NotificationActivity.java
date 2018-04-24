@@ -159,7 +159,7 @@ public class NotificationActivity extends BaseActivity implements NetworkMethod 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 finishAffinity();
             }
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, DashboardActivity.class));
         } else {
             finish();
         }

@@ -3,6 +3,7 @@ package com.mahindra.be_lms.fragments;
 
 import android.app.Activity;
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -49,6 +50,7 @@ import com.mahindra.be_lms.model.MostView;
 import com.mahindra.be_lms.model.TechnicalUpload;
 import com.mahindra.be_lms.util.CommonFunctions;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 import com.mahindra.be_lms.util.DBHelper;
 import com.mahindra.be_lms.util.DateManagement;
 import com.mahindra.be_lms.util.Utility;
@@ -91,9 +93,10 @@ public class MostViewedByMeFragment extends Fragment implements MyCallback ,Netw
     private String filePath;
     private String download_url;
     private DashboardActivity mainActivity;
+    private ProgressDialog progressDialog;
 
     public MostViewedByMeFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -131,7 +134,8 @@ public class MostViewedByMeFragment extends Fragment implements MyCallback ,Netw
                 retryButtonLayout.setVisibility(View.GONE);
                 rvMostViewedByMe.setVisibility(View.VISIBLE);
             }
-            L.pd(getString(R.string.dialog_please_wait), getActivity());
+           progressDialog = new CustomProgressDialog(getActivity(),"");
+            progressDialog.show();
             request(Constants.BE_LMS_ROOT_URL+MyApplication.mySharedPreference.getUserToken()+"&wsfunction=custommobwebsrvices_mymostviewed&moodlewsrestformat=json");
 
         } else {
@@ -378,8 +382,9 @@ public class MostViewedByMeFragment extends Fragment implements MyCallback ,Netw
 
             } catch (JSONException e) {
                 e.printStackTrace();
+                progressDialog.dismiss();
             }
-            L.dismiss_pd();
+           progressDialog.dismiss();
 
 //            String responseData = "{\"statusCode\":\"200\",\"result\":\"Success\",\"message\":\"Success\",\"data\":{\"id\":\"121\",\"username\":\"U000121\",\"firstname\":\"Vijay\",\"lastname\":\"Kumavat\",\"emailid\":\"v11.kumavat@yahoo.in\",\"mobileno\":\"+918149143550\",\"organization_code\":\"\",\"organization\":\"Krios\",\"picture\":\"\",\"location\":\"296\",\"designation\":\"4\",\"qualification\":\"25\",\"role\":\"Customer\",\"dob\":\"11-03-1999\",\"doj\":\"11-09-2017\",\"profiles\":\"Customer,Tester,Samriddhi\",\"groups\":\"MASL,Customer,Tester\",\"menurights\":{\"registration\":\"N\",\"search\":\"N\",\"powerolCare\":\"N\",\"mostViewed\":\"N\",\"myProfile\":\"N\",\"surveyFeedbacks\":\"N\",\"myTrainingPassport\":\"N\",\"learningTestQuizs\":\"N\",\"manualsBulletins\":\"Y\",\"trainingCalenderNomination\":\"N\",\"queriesResponse\":\"N\",\"technicalUploads\":\"N\",\"myFieldRecords\":\"N\",\"reports\":\"N\",\"manpowerEdition\":\"N\"}}}";
 //            updateDisplay(responseData);
@@ -387,7 +392,7 @@ public class MostViewedByMeFragment extends Fragment implements MyCallback ,Netw
     }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            L.dismiss_pd();
+            progressDialog.dismiss();
             L.l(getActivity(), "ERROR : " + error.getMessage());
             if (L.checkNull(error.getMessage())) {
                 new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)

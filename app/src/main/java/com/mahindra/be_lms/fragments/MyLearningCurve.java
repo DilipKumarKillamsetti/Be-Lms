@@ -26,6 +26,12 @@ public class MyLearningCurve extends Fragment implements View.OnClickListener {
     LinearLayout ll_mytys;
     @BindView(R.id.ll_myel)
     LinearLayout ll_myel;
+    @BindView(R.id.ll_myfss)
+    LinearLayout ll_myfss;
+    @BindView(R.id.ll_myep)
+    LinearLayout ll_myep;
+    @BindView(R.id.ll_mytc)
+    LinearLayout ll_mytc;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,8 +44,11 @@ public class MyLearningCurve extends Fragment implements View.OnClickListener {
     }
 
     public void init(){
+        ll_mytc.setOnClickListener(this);
         ll_mytys.setOnClickListener(this);
         ll_myel.setOnClickListener(this);
+        ll_myfss.setOnClickListener(this);
+        ll_myep.setOnClickListener(this);
     }
 
     @Override
@@ -59,7 +68,7 @@ public class MyLearningCurve extends Fragment implements View.OnClickListener {
 
             case R.id.ll_mytc:
 
-
+                replaceFrgament(new MytrainingFragment());
 
                 break;
 
@@ -75,8 +84,12 @@ public class MyLearningCurve extends Fragment implements View.OnClickListener {
 
             case R.id.ll_myfss:
 
-                replaceFrgament(new SurveyFeedbackFragment());
+                replaceFrgament(new FeedbackStausFragment());
 
+                break;
+
+            case R.id.ll_myep:
+                replaceFrgament(new MyExcellencePost());
                 break;
 
 

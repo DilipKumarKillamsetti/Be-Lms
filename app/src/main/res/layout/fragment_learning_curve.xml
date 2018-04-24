@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/margin_size_3dp"
+                android:visibility="visible"
                 android:background="@drawable/new_grey_bg">
 
                 <com.mahindra.be_lms.util.CircularImageView

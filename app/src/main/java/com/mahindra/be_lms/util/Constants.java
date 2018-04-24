@@ -9,7 +9,7 @@ import com.mahindra.be_lms.BuildConfig;
 public class Constants {
 
    // ============BE-API===========================
-   public static final String WS_TOKEN = "b1b252ac0194beb01bcb1980e202e95cd0f84245";
+   public static final String WS_TOKEN = "75ec0c1c371c35111408eabb54d83367";
    public static final String  BE_LMS_Common_URL = "http://13.76.164.143/businessexcellence/";
    //public static final String BE_LMS_QUIZ_URL = "http://137.116.169.88/mastra_lms_uat/blocks/tfksettings/tfk_form_all_courses.php?token=b5a3ccd8331a2ed6e9def6b84e8a52ef&formid=47&tfkuserID=";
    public static final String BE_LMS_ROOT_URL = "http://13.76.164.143/businessexcellence/webservice/rest/server.php?wstoken=";

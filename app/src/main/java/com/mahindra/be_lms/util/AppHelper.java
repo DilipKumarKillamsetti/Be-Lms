@@ -25,6 +25,7 @@ public class AppHelper {
      * @param id      drawable resource id
      * @return byte array
      */
+
     public static byte[] getFileDataFromDrawable(Context context, int id) {
         Drawable drawable = ContextCompat.getDrawable(context, id);
         Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();

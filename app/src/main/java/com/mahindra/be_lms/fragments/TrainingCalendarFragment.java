@@ -2,6 +2,7 @@ package com.mahindra.be_lms.fragments;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -41,6 +42,7 @@ import com.mahindra.be_lms.lib.MySharedPreference;
 import com.mahindra.be_lms.lib.PKBDialog;
 import com.mahindra.be_lms.model.EventNew;
 import com.mahindra.be_lms.util.Constants;
+import com.mahindra.be_lms.util.CustomProgressDialog;
 import com.mahindra.be_lms.volley.VolleySingleton;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
@@ -87,6 +89,7 @@ public class TrainingCalendarFragment extends Fragment implements NetworkMethod,
     private List<Event> eventList2;
     @BindView(R.id.calendar)
     CollapsibleCalendarView mCalendarView;
+    private ProgressDialog progressDialog;
 
     public TrainingCalendarFragment() {
         // Required empty public constructor
@@ -253,13 +256,15 @@ eventList2.clear();
 
     @Override
     public void request(String url) {
-        L.pd(getString(R.string.dialog_please_wait), getActivity());
+        progressDialog = new CustomProgressDialog(getActivity(),"");
+        progressDialog.show();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
 
                 try {
+                    Log.e("=========",response.toString());
                     updateDisplay(response.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -268,7 +273,7 @@ eventList2.clear();
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                L.dismiss_pd();
+                progressDialog.dismiss();
                 L.l(getActivity(), "ERROR : " + error.getMessage());
                 if (L.checkNull(error.getMessage())) {
                     new PKBDialog(getActivity(), PKBDialog.WARNING_TYPE)
@@ -293,6 +298,7 @@ eventList2.clear();
                     //showCalendar();
                     mCalendarView.setListener(this);
                     mCalendarView.addEvents(getEvents());
+                    mCalendarView.setShowInactiveDays(true);
                 } else {
                     tvTrainingCalendarFragmentNRF.setVisibility(View.VISIBLE);
                     rvEventListFragment.setVisibility(View.GONE);
@@ -332,6 +338,12 @@ eventList2.clear();
     }
 
     @Override
+    public void myCallback(int position, String tag, String id, String action) {
+
+    }
+
+
+    @Override
     public void onDateSelected(LocalDate date, List<EventNew> events) {
 
         eventList2.clear();
@@ -340,9 +352,7 @@ eventList2.clear();
             cal.setTimeInMillis(Long.parseLong(event.getEventFromdate()) * 1000L);
             String date1 = DateFormat.format("yyyy-MM-dd", cal).toString();
             if (date1.equals(""+date)) {
-
                 eventList2.add(event);
-
             }
         }
         if (eventList2.size() > 1) {

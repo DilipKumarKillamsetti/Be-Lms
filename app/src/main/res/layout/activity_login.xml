@@ -98,7 +98,6 @@
                     android:textColorHint="@color/grey_light"
                     android:singleLine="true"
                     android:inputType="text|textCapWords|textNoSuggestions"
-                    android:maxLength="20"
                     android:textSize="@dimen/text_size_16sp"/>
 
                 <RelativeLayout

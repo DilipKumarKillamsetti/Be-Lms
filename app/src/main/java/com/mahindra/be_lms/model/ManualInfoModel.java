@@ -7,10 +7,10 @@ package com.mahindra.be_lms.model;
 public class ManualInfoModel {
 
     public  String id;
-    public  String filePath;
-    public  String manualName;
-    public String fileType;
-    public String originalFileName;
+    public  String fileurl;
+    public  String name;
+    public String type;
+    public String filename;
 
     public String getId() {
         return id;
@@ -21,34 +21,34 @@ public class ManualInfoModel {
     }
 
     public String getFilePath() {
-        return filePath;
+        return fileurl;
     }
 
     public void setFilePath(String filePath) {
-        this.filePath = filePath;
+        this.fileurl = filePath;
     }
 
     public String getManualName() {
-        return manualName;
+        return name;
     }
 
     public void setManualName(String manualName) {
-        this.manualName = manualName;
+        this.name = manualName;
     }
 
     public String getFileType() {
-        return fileType;
+        return type;
     }
 
     public void setFileType(String fileType) {
-        this.fileType = fileType;
+        this.type = fileType;
     }
 
     public String getOriginalFileName() {
-        return originalFileName;
+        return filename;
     }
 
     public void setOriginalFileName(String originalFileName) {
-        this.originalFileName = originalFileName;
+        this.filename = originalFileName;
     }
 }

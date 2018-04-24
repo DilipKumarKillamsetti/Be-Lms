@@ -158,9 +158,9 @@
 <![CDATA[ <p>
 
          • The contents given in this application is subject to change any time without notice.<br/> <br/>
-         • Whilst every care has be taken in the compilation of information contained in this application, legal liability cannot be accepted by Mahindra Agri.<br/> <br/>
-         • All rights reserved. No part of the information given in this application may be reproduced, stored in a retrieval system, saved, photocopied, transmitted in any form without prior permission of Mahindra Agri.<br/> <br/>
-         • For any queries please contact Mahindra Agri Service Training & Publications department.
+         • Whilst every care has be taken in the compilation of information contained in this application, legal liability cannot be accepted by Mahindra.<br/> <br/>
+         • All rights reserved. No part of the information given in this application may be reproduced, stored in a retrieval system, saved, photocopied, transmitted in any form without prior permission of Mahindra.<br/> <br/>
+         • For any queries please contact Mahindra BE Service Training & Publications department.
 
          </p>]]>
     </string>
@@ -320,5 +320,9 @@ ZENDE.NILESH@mahindra.com<br/>
     <string name="welcome_text"><b>Welcome</b></string>
     <string name="btn_acccept">Accept</string>
     <string name="text_disclaimer">Disclaimer</string>
+    <string name="title_tys">Test your skills</string>
+    <string name="err_enter_post">Enter whats on your mind.</string>
+    <string name="comments_hint_text">Enter comments</string>
+    <string name="err_enter_comment">Please enter comment.</string>
 
 </resources>

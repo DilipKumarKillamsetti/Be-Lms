@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -62,22 +63,28 @@ public class QueryResponseAdapter extends RecyclerView.Adapter<QueryResponseAdap
     @Override
     public void onBindViewHolder(QueryResponseAdapter.QueriesResponseViewHolder holder, int position) {
 
-        if (queryResponseList.get(position).getMsg_type().equals("response")) {
+        //if (queryResponseList.get(position).getMsg_type().equals("byother")) {
             holder.llQueryReplyMain.setVisibility(View.GONE);
             holder.llQueryReplyLayout.setVisibility(View.GONE);
-            holder.llQueryResponseMain.setVisibility(View.VISIBLE);
-            holder.llQueryResponseLayout.setVisibility(View.VISIBLE);
-            holder.tvResponseTitle.setVisibility(View.GONE);
-            holder.tvResponseMessage.setText("Message: " + queryResponseList.get(position).getMessage());
-            holder.tvResponseResponsiblePerson.setText(queryResponseList.get(position).getResposePerson());
-            if (!TextUtils.isEmpty(queryResponseList.get(position).getQueryReplyAttachment()) && !queryResponseList.get(position).getQueryReplyAttachment().equalsIgnoreCase("null")) {
-                holder.llQueryResponseAttachment.setVisibility(View.VISIBLE);
-                String final_url = Constants.LMS_Common_URL + queryResponseList.get(position).getQueryReplyAttachment();
-                L.l("Final Response Attach Link: " + final_url);
-                Picasso.with(context).load(final_url).placeholder(R.drawable.powerol_logo).into(holder.ivQueryResponseAttachment);
-            } else {
-                holder.llQueryResponseAttachment.setVisibility(View.GONE);
-            }
+            holder.tvResponseTitle.setText(queryResponseList.get(position).getResposePerson());
+            holder.tvResponseMessage.setText(Html.fromHtml(queryResponseList.get(position).getMessage().trim()));
+            holder.tvResponseResponsiblePerson.setText(queryResponseList.get(position).getModified());
+        if(!TextUtils.isEmpty(queryResponseList.get(position).getUserpic())){
+            Picasso.with(context)
+                    .load(queryResponseList.get(position).getUserpic())
+                    .resize(200, 200)
+                    .placeholder(context.getResources().getDrawable(R.drawable.user_new))
+                    .centerCrop()
+                    .into(holder.iv_image_post);
+        }
+//            if (!TextUtils.isEmpty(queryResponseList.get(position).getQueryReplyAttachment()) && !queryResponseList.get(position).getQueryReplyAttachment().equalsIgnoreCase("null")) {
+//                holder.llQueryResponseAttachment.setVisibility(View.VISIBLE);
+//                String final_url = Constants.LMS_Common_URL + queryResponseList.get(position).getQueryReplyAttachment();
+//                L.l("Final Response Attach Link: " + final_url);
+//                Picasso.with(context).load(final_url).placeholder(R.drawable.powerol_logo).into(holder.ivQueryResponseAttachment);
+//            } else {
+//                holder.llQueryResponseAttachment.setVisibility(View.GONE);
+//            }
             if (!TextUtils.isEmpty(queryResponseList.get(position).getQueryResponseExtraLink()) && !queryResponseList.get(position).getQueryResponseExtraLink().equalsIgnoreCase("null")) {
                 holder.linearLayoutResponseDocument.setVisibility(View.VISIBLE);
                /*  {query_id=69, type=query_replay, title=Reply for Query,
@@ -119,25 +126,25 @@ public class QueryResponseAdapter extends RecyclerView.Adapter<QueryResponseAdap
             } else {
                 holder.linearLayoutResponseDocument.setVisibility(View.GONE);
             }
-        } else {
-            holder.llQueryResponseMain.setVisibility(View.GONE);
-            holder.llQueryResponseLayout.setVisibility(View.GONE);
-            holder.llQueryReplyMain.setVisibility(View.VISIBLE);
-            holder.llQueryReplyLayout.setVisibility(View.VISIBLE);
-            holder.tvReplyTitle.setVisibility(View.GONE);
-            //  holder.tvReplyTitle.setText("Title: "+queryResponseList.get(position).getTitle());
-            holder.tvReplyMessage.setText("Message: " + queryResponseList.get(position).getMessage());
-            holder.tvReplyResponsiblePerson.setText(queryResponseList.get(position).getResposePerson());
-            if (!TextUtils.isEmpty(queryResponseList.get(position).getQueryReplyAttachment()) && !queryResponseList.get(position).getQueryReplyAttachment().equalsIgnoreCase("null")) {
-                holder.llQueryReplyAttachment.setVisibility(View.VISIBLE);
-                Bitmap bitmap = decodeBase64(queryResponseList.get(position).getQueryReplyAttachment());
-                if (bitmap != null) {
-                    holder.ivQueryReplyAttachment.setImageBitmap(bitmap);
-                }
-            } else {
-                holder.llQueryReplyAttachment.setVisibility(View.GONE);
-            }
-        }
+//        } else {
+//            holder.llQueryResponseMain.setVisibility(View.GONE);
+//            holder.llQueryResponseLayout.setVisibility(View.GONE);
+//            holder.llQueryReplyMain.setVisibility(View.VISIBLE);
+//            holder.llQueryReplyLayout.setVisibility(View.VISIBLE);
+//            holder.tvReplyTitle.setVisibility(View.GONE);
+//            //  holder.tvReplyTitle.setText("Title: "+queryResponseList.get(position).getTitle());
+//            holder.tvReplyMessage.setText("Message: " + queryResponseList.get(position).getMessage());
+//            holder.tvReplyResponsiblePerson.setText(queryResponseList.get(position).getResposePerson());
+//            if (!TextUtils.isEmpty(queryResponseList.get(position).getQueryReplyAttachment()) && !queryResponseList.get(position).getQueryReplyAttachment().equalsIgnoreCase("null")) {
+//                holder.llQueryReplyAttachment.setVisibility(View.VISIBLE);
+//                Bitmap bitmap = decodeBase64(queryResponseList.get(position).getQueryReplyAttachment());
+//                if (bitmap != null) {
+//                    holder.ivQueryReplyAttachment.setImageBitmap(bitmap);
+//                }
+//            } else {
+//                holder.llQueryReplyAttachment.setVisibility(View.GONE);
+//            }
+//        }
 
     }
 
@@ -187,6 +194,8 @@ public class QueryResponseAdapter extends RecyclerView.Adapter<QueryResponseAdap
         LinearLayout linearLayoutResponseDocument;
         @BindView(R.id.tvQueryResponseDocumentLink)
         TextView tvQueryResponseDocumentLink;
+        @BindView(R.id.iv_image_post)
+        ImageView iv_image_post;
 
         public QueriesResponseViewHolder(View itemView) {
             super(itemView);

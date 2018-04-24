@@ -5,13 +5,13 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/header_color</item>
         <item name="colorPrimaryDark">@color/header_color</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/header_color</item>
         <item name="android:dropDownListViewStyle">@style/mySpinnerStyle</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_drawable</item>
-        <item name="colorPrimaryDark">@color/caldroid_lighter_gray</item>
+        <item name="colorPrimaryDark">@color/header_color</item>
     </style>
 
     <style name="myTheme_NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
@@ -192,6 +192,15 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/Black</item>
         <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:background">#33000000</item> <!-- Or any transparency or color you need -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
     </style>
 
 

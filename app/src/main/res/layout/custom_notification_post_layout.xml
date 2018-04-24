@@ -3,6 +3,20 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/retryButtonLayout"
+        layout="@layout/retry_button_layout"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/tvNoRecordFound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_record_found"
+        android:textSize="@dimen/text_24sp"
+        android:visibility="gone" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvPostNotificationList"
         android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 package com.mahindra.be_lms.videosupport;
 
 import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -17,12 +18,14 @@ public class AAH_CustomViewHolder extends RecyclerView.ViewHolder {
     private AAH_VideoImage aah_vi;
     private String imageUrl;
     private String videoUrl;
+    private Context context;
     private boolean isLooping = true;
     private boolean isPaused = false;
 
 
-    public AAH_CustomViewHolder(View x) {
+    public AAH_CustomViewHolder(View x, Context context) {
         super(x);
+        this.context = context;
         aah_vi = (AAH_VideoImage) x.findViewWithTag("aah_vi");
     }
 
@@ -32,7 +35,23 @@ public class AAH_CustomViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void videoStarted() {
-        this.aah_vi.getImageView().setVisibility(View.GONE);
+
+        try {
+
+            ((Activity) context).runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    aah_vi.getImageView().setVisibility(View.GONE);
+
+                }
+            });
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     public void showThumb() {
         this.aah_vi.getImageView().setVisibility(View.VISIBLE);
@@ -47,7 +66,13 @@ public class AAH_CustomViewHolder extends RecyclerView.ViewHolder {
         this.aah_vi.getCustomVideoView().setMyFuncIn(new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
-                videoStarted();
+                ((Activity) context).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        videoStarted();
+                    }
+                });
                 return null;
             }
         });
@@ -104,6 +129,9 @@ public class AAH_CustomViewHolder extends RecyclerView.ViewHolder {
         return videoUrl + "";
     }
 
+    public void stop() {
+         this.aah_vi.getCustomVideoView().stopVideo();
+    }
     public boolean isPlaying() {
         return this.aah_vi.getCustomVideoView().isPlaying();
     }

@@ -45,6 +45,7 @@ public class MyTrainingPassportAdapter extends RecyclerView.Adapter<MyTrainingPa
         holder.tvMyTrainingPassportFragmentCourseName.setText(myTrainningPassportModels.get(position).getCoursename());
         holder.tvMyTrainingPassportFragmentQuizName.setText(myTrainningPassportModels.get(position).getQuizname());
         holder.tvMyTrainingPassportFragmentQuizDate.setText(myTrainningPassportModels.get(position).getDate());
+        holder.tvStatus.setText(myTrainningPassportModels.get(position).getState());
         Drawable quizResultIcon = context.getResources().getDrawable(R.drawable.fail);
         if (myTrainningPassportModels.get(position).getResult().equalsIgnoreCase("passed")) {
             quizResultIcon = context.getResources().getDrawable(R.drawable.passed);
@@ -88,6 +89,8 @@ public class MyTrainingPassportAdapter extends RecyclerView.Adapter<MyTrainingPa
         LinearLayout llMyTrainingPassportFragmentFeedback;
         @BindView(R.id.llCustomProgramDetailFragment)
         LinearLayout llCustomProgramDetailFragment;
+        @BindView(R.id.tvStatus)
+        TextView tvStatus;
 
         public MyTrainingPasswordViewHolder(View itemView) {
             super(itemView);
